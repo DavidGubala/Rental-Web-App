@@ -8,8 +8,9 @@ export default class extends AbstractView{
 
     async getHtml() {
         return `
-            <h1>This is Home View</h1>
-            <p>In this app view we will have a basic landing page with links to services.</p>
+            <h1>Welcome to Rentals Web App</h1>
+            <p>This is a Web App where you can sign up as a Carrier or a Partner</p>
         `;
     }
+
 }

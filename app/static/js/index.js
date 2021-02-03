@@ -69,9 +69,13 @@ document.addEventListener("DOMContentLoaded", () => {
             e.preventDefault();
             NavigateTo(e.target.href);
         }
-        if (e.target.matches("#logo")) {
+        if (e.target.matches(".logo")) {
             e.preventDefault();
             NavigateTo("/");
+        }
+        if (e.target.matches(".siglog")) {
+            e.preventDefault();
+            NavigateTo("/login");
         }
     });
     router();
