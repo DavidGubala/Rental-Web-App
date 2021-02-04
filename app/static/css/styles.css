@@ -7,12 +7,33 @@
     padding: 0;
 }
 
-a {
+body {
+    background-color: #edf0f1;
     font-family: "Montserrat", sans-serif;
+    line-height: 1.6;
+}
+
+.featured-img, .service-img{
+    float: right;
+    width:  280px;
+    height: 180px;
+    margin: 0;
+}
+
+a {
     font-weight: 500;
     font-size: 16px;
     color:#edf0f1;
     text-decoration: none;
+}
+
+.split {
+    display: flex;
+    justify-content:space-between;
+}
+
+.featured-rental {
+    color: #24252A;
 }
 
 header {
@@ -22,7 +43,6 @@ header {
     padding: 10px 10%;
     background-color: #24252A;
 }
-
 
 .logo {
     width: 96px;
@@ -38,7 +58,7 @@ header {
     color: #0088a9;
 }
 
-.btn {
+.btn, .sbtn {
     margin-left: 20px;
     padding: 9px 25px;
     background-color: rgba(0,136,169,1);
@@ -46,8 +66,15 @@ header {
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease 0s;
+    display:inline-block;
 }
 
-.btn:hover{
-    background-color: rgba(0,136,169,0.8);
+.btn:hover, .sbtn:hover{
+    background-color: #e7e7e7;
+}
+
+#app {
+    margin: 0 auto;
+    width: 85%;
+    max-width: 85em;
 }
