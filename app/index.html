@@ -3,36 +3,26 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="/static/css/styles.css">
-        <title>WebApp</title>
+        <title>Shipper</title>
     </head>
     <body>
         <header>
-            <a href="/" class="nav__link" data-link><img class="logo" src="/static/assets/logo2-1.png" alt="site logo"></a>
             <nav class="nav">
-                <a href="/rental" class="nav__link" data-link>Rentals</a>
-                <a href="/carrier" class="nav__link" data-link>Carriers</a>
-                <a href="/partner" class="nav__link" data-link>Partners</a>
-                <a href="/login" class="nav__link btn" data-link>Login/Sign-Up</a>
+                <div class="right">
+                    <a href="/" class="nav__link" data-link><img class="logo" src="/static/assets/logo.png" alt="site logo"></a>
+                    <a href="/shipper" class="nav__link" data-link>Shipper</a>
+                    <a href="/carrier" class="nav__link" data-link>Carrier</a>
+                    <a href="/partner" class="nav__link" data-link>Partner</a>
+                    <a href="/about" class="nav__link" data-link>About</a>
+                </div>
+                <div class="left">
+                    <a class="nav__list">Services</a>
+                    <a href="/login" class="nav__link" data-link>Login</a>
+                    <a href="/signup" class="nav__link btn" data-link>Sign Up</a>
+                </div>
             </nav>
         </header>
         <div id="app"></div>
-        <footer>
-            <div class="footer-section footer1">
-                <h2>About</h2>
-                <a href="/carrier">Carriers</a>
-                <a href="/partner">Partners</a>
-                <a href="/about">About Us</a>
-                <a href="/investors">Investors</a>
-                <a href="/">Terms of Service</a>
-            </div>
-            <div class="footer-section footer-2">
-                <h2>Contact</h2>
-                <a href="/">Jobs</a>
-                <a href="/">Support</a>
-                <a href="/">Contact</a>
-                <a href="/">Featured</a>
-            </div>
-        </footer>
         <script type="module" src="/static/js/index.js"></script>
     </body>
 </html>
