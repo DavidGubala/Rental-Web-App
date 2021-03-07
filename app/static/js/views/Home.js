@@ -7,7 +7,34 @@ export default class extends AbstractView{
     }
 
     async getHtml() {
-        return `<h1>Home Screen<h1>`;
+        return `
+        
+        <div id="landing">
+            <div id="ls1">
+                    <h1>Givings loads across the world</h1>
+                    <p>Earn and grow with transparent logistics.</p>
+                    <img src="/static/assets/landing-page/map.svg" alt="map svg">
+            </div>
+            <div id="ls2">
+                <h1>Carriers</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris in justo massa. Ut sollicitudin tortor at nibh interdum molestie. In vitae commodo nunc. </p>
+                <img src="/static/assets/landing-page/truck.svg" alt="struck svg">
+                <button><span>Learn More </span></button>
+            </div>
+            <div id="ls3">
+                <h1>Shippers</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris in justo massa. Ut sollicitudin tortor at nibh interdum molestie. In vitae commodo nunc. </p>
+                <img src="/static/assets/landing-page/warehouse.svg" alt="warehouse svg">
+                <button><span>Learn More </span></button>
+            </div>
+            <div id="ls4">
+                <h1>Partners</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris in justo massa. Ut sollicitudin tortor at nibh interdum molestie. In vitae commodo nunc. </p>
+                <img src="/static/assets/landing-page/fleet.svg" alt="fleet svg">
+                <button><span>Learn More </span></button>
+            </div>
+        </div>
+        `;
     }
 
 }

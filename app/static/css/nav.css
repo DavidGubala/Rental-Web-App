@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+nav {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    display: grid;
+    grid-template-columns: repeat(12, [col] 122px);
+    grid-template-rows: 17px 36px 17px;
+    column-gap: 16px;
+    justify-items: end;
+}
+
+nav>#shipper, nav>#carrier, nav>#partner, nav>#about, nav>#services, nav>#login, nav>#signup{
+    font-size: medium;
+    font-family: "Montserrat", sans-serif;
+    color: #000f3b;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease 0s;
+    padding: 5px;
+    border-radius: 19px;
+}
+
+nav>#shipper:hover, nav>#carrier:hover, nav>#partner:hover, nav>#about:hover{
+    background-color: #ffe9b0;
+    color: #000f3b;
+}
+
+nav>#logo {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 4;
+}
+
+.logo{
+    margin: 0;
+}
+
+nav>#shipper {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    transition: 1s;
+    align-self: center;
+}
+
+nav>#carrier {
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    transition: 1s;
+    align-self: center;
+}
+
+nav>#partner {
+    grid-column-start: 5;
+    grid-column-end: 6;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    transition: 1s;
+    align-self: center;
+}
+
+nav>#about {
+    grid-column-start: 6;
+    grid-column-end: 7;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    transition: 1s;
+    align-self: center;
+}
+
+nav>#services {
+    grid-column-start: 9;
+    grid-column-end: 10;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    align-self: center;
+    padding: 5px;
+    border-radius: 19px;
+}
+
+nav>a>#service-icon, nav>a>#account-icon {
+    padding-left: 25px;
+    margin-left: -7px;
+    margin-right: 7px;
+}
+
+nav>#login {
+    grid-column-start: 10;
+    grid-column-end: 11;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    align-self: center;
+    padding: 5px;
+    border-radius: 19px;
+}
+
+nav>#signup {
+    grid-column-start: 11;
+    grid-column-end: 12;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    align-self: center;
+    padding: 5px;
+    background-color: #FFB700;
+    color: #000f3b;
+    border-radius: 19px;
+}
+
+nav>#signup:hover{
+    background-color: #ced9fc;
+    color: #000f3b;
+}
+
+nav>#services:hover, nav>#login:hover{ 
+    background-color: #ffd15c;
+    color: #000f3b;
+}
+

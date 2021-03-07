@@ -59,7 +59,8 @@ const router = async() => {
     const view = new match.route.view(getParams(match));
 
     document.querySelector('#app').innerHTML = await view.getHtml();
-    // Here I can add a get navbar? based on the user being logged in or not this will be in the abstract view
+    document.querySelector('#navbar').innerHTML = await view.getNav();
+    document.querySelector('#footer').innerHTML = await view.getFooter();
 };
 
 window.addEventListener("popstate", router);

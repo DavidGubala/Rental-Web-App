@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+#landing{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    display: grid;
+    font-family: "Montserrat", sans-serif;
+    grid-template-rows: repeat(4, 840px);
+    grid-template-columns: repeat(12, [col] 122px);
+    column-gap: 16px;
+}
+
+#landing>div>button{
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #FFb700;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 18px;
+    padding: 20px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+#landing>div>button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+#landing>div>button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+#landing>div>button:hover span {
+    padding-right: 25px;
+}
+
+#landing>div>button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+#ls1{
+    grid-column-start: 1;
+    grid-column-end: 13;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    color: white;
+    background-color: #141F40;
+    display: grid;
+    grid-template-columns: repeat(12, [col] 122px);
+    grid-template-rows: 140px 245px 70px 245px 140px;
+    column-gap: 16px;
+}
+
+#ls1>h1{
+    grid-column-start: 2;
+    grid-column-end: 6;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    font-size: 48px;
+    align-self: end;
+}
+
+#ls1>p{
+    grid-column-start: 2;
+    grid-column-end: 6;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    font-size: 20px;
+}
+
+#ls1>img{
+    grid-column-start: 7;
+    grid-column-end: 12;
+    grid-row-start: 2;
+    grid-row-end: 5;
+}
+      
+#ls2{
+    grid-column-start: 1;
+    grid-column-end: 13;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    font-family: "Montserrat", sans-serif;
+    color: #141F40;
+    display: grid;
+    grid-template-columns: repeat(12, [col] 122px);
+    grid-template-rows: 140px 140px 70px 70px 70px 70px 140px 140px;
+    column-gap: 16px;
+}
+
+#ls2>h1{
+    grid-column-start: 8;
+    grid-column-end: 12;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    font-size: 48px;
+    align-self: end;
+}
+
+#ls2>p{
+    grid-column-start: 8;
+    grid-column-end: 12;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    font-size: 20px;
+}
+
+#ls2>img{
+    grid-column-start: 2;
+    grid-column-end: 7;
+    grid-row-start: 2;
+    grid-row-end: 7;
+}
+
+#ls2>button{
+    grid-column-start: 8;
+    grid-column-end: 12;
+    grid-row-start: 6;
+    grid-row-end: 7;
+}
+
+#ls3{
+    grid-column-start: 1;
+    grid-column-end: 13;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    font-family: "Montserrat", sans-serif;
+    color: white;
+    background-color: #141F40;
+    display: grid;
+    grid-template-columns: repeat(12, [col] 122px);
+    grid-template-rows: 140px 140px 70px 70px 70px 70px 140px 140px;
+    column-gap: 16px;
+}
+
+#ls3>h1{
+    grid-column-start: 2;
+    grid-column-end: 6;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    font-size: 48px;
+    align-self: end;
+}
+
+#ls3>p{
+    grid-column-start: 2;
+    grid-column-end: 6;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    font-size: 20px;
+}
+
+#ls3>img{
+    grid-column-start: 6;
+    grid-column-end: 12;
+    grid-row-start: 2;
+    grid-row-end: 5;
+}
+
+#ls3>button{
+    grid-column-start: 2;
+    grid-column-end: 6;
+    grid-row-start: 6;
+    grid-row-end: 7;
+}
+
+#ls4{
+    grid-column-start: 1;
+    grid-column-end: 13;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    font-family: "Montserrat", sans-serif;
+    color: #141F40;
+    display: grid;
+    grid-template-columns: repeat(12, [col] 122px);
+    grid-template-rows: 140px 140px 70px 70px 70px 70px 140px 140px;
+    column-gap: 16px;
+}
+
+
+#ls4>h1{
+    grid-column-start: 8;
+    grid-column-end:12;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    font-size: 48px;
+    align-self: end;
+}
+
+#ls4>p{
+    grid-column-start: 8;
+    grid-column-end: 12;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    font-size: 20px;
+}
+
+#ls4>img{
+    grid-column-start: 2;
+    grid-column-end: 6;
+    grid-row-start: 2;
+    grid-row-end: 7;
+}
+
+#ls4>button{
+    grid-column-start: 8;
+    grid-column-end: 12;
+    grid-row-start: 6;
+    grid-row-end: 7;
+}

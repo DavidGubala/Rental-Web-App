@@ -3,26 +3,17 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="/static/css/styles.css">
+        <link rel="stylesheet" href="/static/css/nav.css">
+        <link rel="stylesheet" href="/static/css/landing-page.css">
         <title>Shipper</title>
     </head>
     <body>
         <header>
-            <nav class="nav">
-                <div class="right">
-                    <a href="/" class="nav__link" data-link><img class="logo" src="/static/assets/logo.png" alt="site logo"></a>
-                    <a href="/shipper" class="nav__link" data-link>Shipper</a>
-                    <a href="/carrier" class="nav__link" data-link>Carrier</a>
-                    <a href="/partner" class="nav__link" data-link>Partner</a>
-                    <a href="/about" class="nav__link" data-link>About</a>
-                </div>
-                <div class="left">
-                    <a class="nav__list">Services</a>
-                    <a href="/login" class="nav__link" data-link>Login</a>
-                    <a href="/signup" class="nav__link btn" data-link>Sign Up</a>
-                </div>
-            </nav>
+            <nav id="navbar"></nav>
         </header>
-        <div id="app"></div>
+        <div id="app">
+        </div>
+        <div id="footer"></div>
         <script type="module" src="/static/js/index.js"></script>
     </body>
 </html>

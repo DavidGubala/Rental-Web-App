@@ -1,49 +1,76 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
-
 * {
     margin: 0;
     padding: 0;
 }
 
 body {
-    background-color: #FBFBFB;
+    background-color: #ebf0ff;
 }
 
 header {
-    background-color: #141F40;
-    height: 97px;
-}
-
-.logo {
-    height: 43px;
-    width: 123px;
-    margin-left: auto;
-}
-
-nav{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-.right, .left{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    flex-basis: 122px;
-}
-
-nav a {
-    color: #FBFBFB;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 200;
-    font-size: 20px;
-    text-align: right;
-    margin-left: 60px;
-    margin-top: 27px;
+    background-color: #e0e9ff;
+    height: 70px;
+    display: grid;
+    grid-template-columns: 140px auto 140px;
 }
 
 #app {
-    margin-left: 140px;
-    margin-right: 140px;
+    display: grid;
+    grid-template-columns: 140px auto 140px;
+}
+
+#footer{
+    background-color: #000f3b;
+    font-family: "Montserrat", sans-serif;
+    color: white;
+    display: grid;
+    grid-template-columns: 140px auto 140px;
+}
+
+#footer>.cont{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    display: grid;
+    grid-template-columns: repeat(12, [col] 122px);
+    grid-template-rows: 35px 106px 35px;
+    grid-column-gap: 16px;
+}
+
+#footer>.cont>#logo{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+#footer>.cont>.people{
+    grid-column-start: 5;
+    grid-column-end: 6;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    display: grid;
+    grid-template-rows: repeat(4, 26px);
+    grid-row-gap: 5px;
+}
+#footer>.cont>.company{
+    grid-column-start: 7;
+    grid-column-end: 8;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    display: grid;
+    grid-template-rows: repeat(4, 26px);
+    grid-row-gap: 5px;
+}
+#footer>.cont>.services{
+    grid-column-start: 9;
+    grid-column-end: 10;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    display: grid;
+    grid-template-rows: repeat(4, 26px);
+    grid-row-gap: 5px;
+}
+
+#footer>.cont>div>a{
+    color: white;
+    text-decoration: none;
 }
