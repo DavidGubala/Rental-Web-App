@@ -8,6 +8,7 @@ import RentalView from "./views/RentalView.js";
 import Order from "./views/Order.js";
 import OrderView from "./views/OrderView.js";
 import Login from "./views/Login.js";
+import Construction from "./views/ConstructionView.js";
 
 const pathToRegex = path => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
 
@@ -33,11 +34,17 @@ const router = async() => {
         { path: "/partner/:id", view: PartnerView},
         { path: "/carrier", view: Carrier},
         { path: "/carrier/:id", view: CarrierView},
-        { path: "/rental", view: Rental},
-        { path: "/rental/:id", view: RentalView},
+        { path: "/load", view: Construction},
+        { path: "/load/:id", view: Construction},
+        { path: "/rental", view: Construction},
+        { path: "/rental/:id", view: Construction},
         { path: "/order", view: Order},
         { path: "/order/:id", view: OrderView},
         { path: "/login", view: Login},
+        { path: "/shipper", view: Construction},
+        { path: "/about", view: Construction},
+        { path: "/careers", view: Construction},
+        { path: "/signup", view: Construction},
     ];
 
     const potentialMatches = routes.map(route => {
@@ -58,24 +65,38 @@ const router = async() => {
 
     const view = new match.route.view(getParams(match));
 
-    document.querySelector('#app').innerHTML = await view.getHtml();
-    document.querySelector('#navbar').innerHTML = await view.getNav();
-    document.querySelector('#footer').innerHTML = await view.getFooter();
+    document.querySelector('.app>#app').innerHTML = await view.getHtml();
+    document.querySelector('.app>header>#navbar').innerHTML = await view.getNav();
+    document.querySelector('.app>#footer').innerHTML = await view.getFooter();
 };
 
 window.addEventListener("popstate", router);
 
 document.addEventListener("DOMContentLoaded", () => {
     document.body.addEventListener("click", e => {
+        console.log('debugging: ', e.target)
         if (e.target.matches("[data-link]")) {
             e.preventDefault();
+            console.log(e.target.href)
             NavigateTo(e.target.href);
         }
         if (e.target.matches(".logo")) {
             e.preventDefault();
             NavigateTo("/");
         }
-        if (e.target.matches(".siglog")) {
+        if (e.target.matches(".lmc")){
+            NavigateTo("/carrier");
+        }
+        if (e.target.matches(".lmp")){
+            NavigateTo("/partner");
+        }
+        if (e.target.matches(".lms")){
+            NavigateTo("/shipper");
+        }
+        if (e.target.matches(".gbh")){
+            NavigateTo("/");
+        }
+        if (e.target.matches("#login-icon")){
             e.preventDefault();
             NavigateTo("/login");
         }

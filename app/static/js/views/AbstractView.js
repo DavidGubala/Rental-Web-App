@@ -19,10 +19,15 @@ export default class{
         <a href="/carrier" class="nav__link" data-link id = "carrier">Carrier</a>
         <a href="/partner" class="nav__link" data-link id = "partner">Partner</a>
         <a href="/about" class="nav__link" data-link id = "about">About</a>
-
-        <a class="nav__link" id = "services">Services<img id = "service-icon" src="/static/assets/nav-bar/icons/services-icon.svg"> </a>
-        <a href="/login" class="nav__link" data-link id = "login">Login<img id = "account-icon" src="/static/assets/nav-bar/icons/account-icon.svg"></a>
+        <div id = "services">
+            <a>Services<img id = "service-icon" src="/static/assets/nav-bar/icons/services-icon.svg"></a>
+            <ul class = "sub-menu">
+                <li><a href="/rental" class="nav__link" data-link id = 'rentals'>Rentals</a></li>
+                <li><a href="/load" class="nav__link" data-link id = 'loads'>Loads</a></li>
+            </ul>
+        </div>
         
+        <a href="/login" class="nav__link" data-link id = "login">Login<img id="login-icon" src="/static/assets/nav-bar/icons/account-icon.svg"></a>
         <a href="/signup" class="nav__link btn" data-link id = "signup">Sign Up</a>
         `;
     }
@@ -38,13 +43,13 @@ export default class{
             </div>
             <div class="company">
                 <h3>Company</h3>
-                <a href="/about" class="foot__link" data-link id = "shipper">Shipper</a>
-                <a href="/careers" class="foot__link" data-link id = "carrier">Carrier</a>
+                <a href="/about" class="foot__link" data-link id = "about">About</a>
+                <a href="/careers" class="foot__link" data-link id = "carreers">Careers</a>
             </div>
             <div class="services">
                 <h3>Services</h3>
-                <a href="/loads" class="foot__link" data-link id = "shipper">Shipper</a>
-                <a href="/rental" class="foot__link" data-link id = "carrier">Carrier</a>
+                <a href="/rental" class="foot__link" data-link id = "rentals">Rentals</a>
+                <a href="/load" class="foot__link" data-link id = "loads">Loads</a>
             </div>
         </div>
         `;

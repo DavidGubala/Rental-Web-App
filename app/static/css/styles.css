@@ -3,37 +3,52 @@
     padding: 0;
 }
 
-body {
+html, body {
     background-color: #ebf0ff;
+    height: 100%;
+    overflow-x: hidden;
+
 }
 
 header {
     background-color: #e0e9ff;
     height: 70px;
+    grid-column-start: 1;
+    grid-column-end: 4;
     display: grid;
     grid-template-columns: 140px auto 140px;
 }
 
-#app {
+.app{
+    min-height: 100%;
     display: grid;
+    grid-template-rows: auto 1fr auto;
     grid-template-columns: 140px auto 140px;
+}
+
+#app{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    background-color: #f2f5ff;
 }
 
 #footer{
     background-color: #000f3b;
     font-family: "Montserrat", sans-serif;
     color: white;
+    grid-column-start: 1;
+    grid-column-end: 4;
     display: grid;
     grid-template-columns: 140px auto 140px;
 }
 
 #footer>.cont{
-    grid-column-start: 2;
-    grid-column-end: 3;
     display: grid;
     grid-template-columns: repeat(12, [col] 122px);
     grid-template-rows: 35px 106px 35px;
     grid-column-gap: 16px;
+    grid-column-start: 2;
+    grid-column-end: 3;
 }
 
 #footer>.cont>#logo{
