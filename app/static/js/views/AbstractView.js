@@ -5,7 +5,7 @@ export default class{
     }
 
     setTitle(title) {
-        document.title = title;
+        document.title = "Shipper";
     }
 
     async getHtml(){

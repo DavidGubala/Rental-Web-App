@@ -11,14 +11,17 @@ export default class extends AbstractView{
         <div id="partner-info">
         <div id="pi1">
                 <h1>Partners</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris in justo massa. Ut sollicitudin tortor at nibh interdum molestie. In vitae commodo nunc. </p>
+                <p>
+                    With automatic rental management options. 
+                    and Shipper is helping give control to Partners 
+                </p>
                 <button><span>Sign Up</span></button>
         </div>
         <div id="pi2">
             <div id="t1">
                 <img src="/static/assets/carrier-info-page/check.svg" alt="fleet svg">
                 <h4>Hassle-Free Renting</h4>
-                <p>Throw out the paperwork and let out automation do your work</p>
+                <p>Throw out the paperwork and let our automation do your work</p>
             </div>
             <div id="t2">
                 <img src="/static/assets/carrier-info-page/money.svg" alt="fleet svg">

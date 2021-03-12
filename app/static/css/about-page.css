@@ -1,0 +1,204 @@
+.about-page{
+    display: grid;
+    font-family: "Montserrat", sans-serif;
+    grid-template-rows: 620px 350px 910px 507px;
+    grid-template-columns: repeat(12, [col] 122px);
+    column-gap: 16px;
+}
+
+.about-page>div>button{
+    background-color: #FFb700;
+}
+
+#as1{
+    grid-column-start: 1;
+    grid-column-end: 13;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    color: #141F40;
+    display: grid;
+    grid-template-columns: repeat(12, [col] 122px);
+    grid-template-rows: 140px 70px 70px 140px 140px 70px;
+    column-gap: 16px;
+}
+
+#as1>h1{
+    grid-column-start: 2;
+    grid-column-end: 6;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    font-size: 48px;
+    align-self: end;
+}
+
+#as1>p{
+    grid-column-start: 2;
+    grid-column-end: 6;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    font-size: 16px;
+}
+
+#as1>img{
+    grid-column-start: 7;
+    grid-column-end: 12;
+    grid-row-start: 1;
+    grid-row-end: 6;
+}
+      
+#as2{
+    grid-column-start: 1;
+    grid-column-end: 13;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    font-family: "Montserrat", sans-serif;
+    color: #141F40;
+    background-color: #ebf0ff;
+    display: grid;
+    grid-template-columns: repeat(12, [col] 122px);
+    grid-template-rows: 70px 35px 35px 140px 70px;
+    column-gap: 16px;
+}
+
+#as2>h2{
+    grid-column-start: 5;
+    grid-column-end: 9;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    font-size: 32px;
+    justify-self: center;
+}
+
+#as2>#i1{
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 5;
+}
+#as2>#i2{
+    grid-column-start: 5;
+    grid-column-end: 9;
+    grid-row-start: 4;
+    grid-row-end: 5;
+}
+
+#as2>#i3{
+    grid-column-start: 9;
+    grid-column-end: 12;
+    grid-row-start: 2;
+    grid-row-end: 5;
+}
+
+#as3{
+    grid-column-start: 1;
+    grid-column-end: 13;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    font-family: "Montserrat", sans-serif;
+    color: white;
+    background-color: #141F40;
+    display: grid;
+    grid-template-columns: repeat(12, [col] 122px);
+    grid-template-rows: 70px 35px 35px 35px 735px;
+    column-gap: 16px;
+}
+
+#as3>p{
+    grid-column-start: 5;
+    grid-column-end: 9;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    justify-self: center;
+}
+
+#as3>h1{
+    grid-column-start: 6;
+    grid-column-end: 8;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    font-size: 32px;
+    justify-self: center;
+}
+
+
+#as3>#shipperb{
+    grid-column-start: 3;
+    grid-column-end: 6;
+    grid-row-start: 5;
+    grid-row-end: 6;
+    display: grid;
+    grid-template-columns: 260px;
+    grid-template-rows: 35px 280px 70px 280px 70px;
+}
+
+#as3>#carrierb{
+    grid-column-start: 6;
+    grid-column-end: 8;
+    grid-row-start: 5;
+    grid-row-end: 6;
+    display: grid;
+    grid-template-columns: 260px;
+    grid-template-rows: 35px 280px 70px 280px 70px;
+}
+
+#as3>#partnerb{
+    grid-column-start: 9;
+    grid-column-end: 11;
+    grid-row-start: 5;
+    grid-row-end: 6;
+    display: grid;
+    grid-template-columns: 260px;
+    grid-template-rows: 35px 280px 70px 280px 70px;
+}
+
+#btitle{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    color: #e0e9ff;
+    font-size: 24px;
+    font-weight: 300;
+    justify-self: center;
+    text-decoration-line: underline;
+}
+
+#b1{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    color: #141F40;
+    background-color: #e0e9ff;
+}
+
+#b2{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    color: #141F40;
+    background-color: #e0e9ff;
+}
+
+#as4{
+    grid-column-start: 1;
+    grid-column-end: 13;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    font-family: "Montserrat", sans-serif;
+    color: #141F40;
+    display: grid;
+    grid-template-columns: repeat(12, [col] 122px);
+    grid-template-rows: 70px 35px 35px 140px 17px 140px 70px;
+    column-gap: 16px;
+}
+
+
+#as4>h1{
+    grid-column-start: 2;
+    grid-column-end: 6;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    font-size: 48px;
+}

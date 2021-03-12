@@ -1,26 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="122" height="70" viewBox="0 0 122 70">
   <g id="Logo" transform="translate(-140.525 -1)">
     <rect id="Rectangle_34" data-name="Rectangle 34" width="122" height="70" transform="translate(140.525 1)" fill="#002280"/>
-    <g id="Ellipse_1" data-name="Ellipse 1" transform="translate(168.525 45)" fill="#edf2ff" stroke="#000" stroke-width="0.5">
-      <circle cx="5" cy="5" r="5" stroke="none"/>
-      <circle cx="5" cy="5" r="4.75" fill="none"/>
-    </g>
-    <g id="Ellipse_5" data-name="Ellipse 5" transform="translate(147.525 45)" fill="#edf2ff" stroke="#000" stroke-width="0.5">
-      <circle cx="5" cy="5" r="5" stroke="none"/>
-      <circle cx="5" cy="5" r="4.75" fill="none"/>
-    </g>
-    <g id="Ellipse_2" data-name="Ellipse 2" transform="translate(179.525 45)" fill="#edf2ff" stroke="#000" stroke-width="0.5">
-      <circle cx="5" cy="5" r="5" stroke="none"/>
-      <circle cx="5" cy="5" r="4.75" fill="none"/>
-    </g>
-    <g id="Ellipse_3" data-name="Ellipse 3" transform="translate(228.525 45)" fill="#edf2ff" stroke="#000" stroke-width="0.5">
-      <circle cx="5" cy="5" r="5" stroke="none"/>
-      <circle cx="5" cy="5" r="4.75" fill="none"/>
-    </g>
-    <g id="Ellipse_4" data-name="Ellipse 4" transform="translate(239.525 45)" fill="#edf2ff" stroke="#000" stroke-width="0.5">
-      <circle cx="5" cy="5" r="5" stroke="none"/>
-      <circle cx="5" cy="5" r="4.75" fill="none"/>
-    </g>
-    <text id="Shipper" transform="translate(143.525 17)" fill="#edf2ff" stroke="#000" stroke-width="0.5" font-size="28" font-family="Montserrat-Bold, Montserrat" font-weight="700"><tspan x="0" y="27">Shipper</tspan></text>
+    <circle id="Ellipse_1" data-name="Ellipse 1" cx="5" cy="5" r="5" transform="translate(168.525 45)" fill="#edf2ff"/>
+    <circle id="Ellipse_5" data-name="Ellipse 5" cx="5" cy="5" r="5" transform="translate(147.525 45)" fill="#edf2ff"/>
+    <circle id="Ellipse_2" data-name="Ellipse 2" cx="5" cy="5" r="5" transform="translate(179.525 45)" fill="#edf2ff"/>
+    <circle id="Ellipse_3" data-name="Ellipse 3" cx="5" cy="5" r="5" transform="translate(228.525 45)" fill="#edf2ff"/>
+    <circle id="Ellipse_4" data-name="Ellipse 4" cx="5" cy="5" r="5" transform="translate(239.525 45)" fill="#edf2ff"/>
+    <text id="Shipper" transform="translate(143.525 17)" fill="#edf2ff" font-size="28" font-family="Montserrat-Bold, Montserrat" font-weight="700"><tspan x="0" y="27">Shipper</tspan></text>
   </g>
 </svg>

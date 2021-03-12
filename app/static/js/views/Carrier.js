@@ -11,7 +11,10 @@ export default class extends AbstractView{
         <div id="carrier-info">
             <div id="ci1">
                     <h1>Carriers</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris in justo massa. Ut sollicitudin tortor at nibh interdum molestie. In vitae commodo nunc. </p>
+                    <p>
+                        With upfront pricing, instant booking, quick pay, and quality rentals, 
+                        Shipper puts you in the driver's seat. It's the one app for every haul.
+                    </p>
                     <button><span>Sign Up</span></button>
             </div>
             <div id="ci2">

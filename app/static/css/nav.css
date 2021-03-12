@@ -19,20 +19,21 @@ nav {
 }
 
 
-nav>#shipper, nav>#carrier, nav>#partner, nav>#about, nav>#services, nav>#login, nav>#signup, nav>div>ul>li>#rentals, nav>div>ul>li>#loads{
+nav>#shipper, nav>#carrier, nav>#partner, nav>#about, nav>#login, nav>#signup{
     font-size: medium;
     font-family: "Montserrat", sans-serif;
     color: #000f3b;
     font-weight: 700;
     text-decoration: none;
-    transition: all 0.3s ease 0s;
-    padding: 5px;
-    border-radius: 19px;
+    transition: all 0.61s ease 0s;
+    padding: 10px;
+    border-radius: 6px;
 }
 
 nav>#shipper:hover, nav>#carrier:hover, nav>#partner:hover, nav>#about:hover{
-    background-color: #ffe9b0;
+    background-color: #ffe39d;
     color: #000f3b;
+    text-decoration:underline;
 }
 
 nav>#logo {
@@ -97,36 +98,38 @@ nav>#services{
     background-color: #e0e9ff;
     font-weight: 700;
     text-decoration: none;
-    transition: all 0.3s ease 0s;
+    transition: all 0.61s ease 0s;
+    padding: 10px;
+    border-radius: 6px;
     cursor: pointer;
 }
 
 nav>#services>a>#service-icon, nav>a>#login-icon {
-    padding-left: 25px;
-    margin-left: -7px;
-    margin-right: 7px;
-}
-
-nav>div{
-    position: relative;
+    padding-left: 15px;
 }
 
 .sub-menu{
-    position: absolute;
-    margin-top: 5px;
-    padding-top: 5px;
-    width: 122px;
+    position:absolute;
+    margin-top: 10px;
+    width: 112px;
     list-style: none;
     opacity: 0;
     pointer-events: none;
     transition: all 0.6s ease;
-    transform: translateY(-10px);
+    transform: translateY(-3px);
     background-color: #e0e9ff;
     border-radius: 6px;
 }
 
 .sub-menu>li{
-    padding-top: 5px;
+    padding-top: 10px;
+    font-size: medium;
+    font-family: "Montserrat", sans-serif;
+    color: #000f3b;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 6px;
 }
 
 nav>#login {
@@ -135,8 +138,6 @@ nav>#login {
     grid-row-start: 2;
     grid-row-end: 3;
     align-self: center;
-    padding: 5px;
-    border-radius: 19px;
 }
 
 nav>#signup {
@@ -145,10 +146,8 @@ nav>#signup {
     grid-row-start: 2;
     grid-row-end: 3;
     align-self: center;
-    padding: 5px;
     background-color: #FFB700;
     color: #000f3b;
-    border-radius: 19px;
 }
 
 nav>#signup:hover{
@@ -164,7 +163,7 @@ nav>#services:hover, nav>#login:hover{
 nav>#services:hover .sub-menu{
     opacity: 1;
     pointer-events:all;
-    transform: translateY(0px);
+    transform: translateY(1px);
 }
 
 nav>#services>ul>li:hover{

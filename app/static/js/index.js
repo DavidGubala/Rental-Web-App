@@ -1,8 +1,11 @@
 import Home from "./views/Home.js";
+import About from "./views/About.js";
 import Partner from "./views/Partner.js";
 import PartnerView from "./views/PartnerView.js";
 import Carrier from "./views/Carrier.js";
 import CarrierView from "./views/CarrierView.js";
+import Shipper from "./views/Shipper.js";
+import ShipperView from "./views/ShipperView.js";
 import Rental from "./views/Rental.js";
 import RentalView from "./views/RentalView.js";
 import Order from "./views/Order.js";
@@ -41,8 +44,9 @@ const router = async() => {
         { path: "/order", view: Order},
         { path: "/order/:id", view: OrderView},
         { path: "/login", view: Login},
-        { path: "/shipper", view: Construction},
-        { path: "/about", view: Construction},
+        { path: "/shipper", view: Shipper},
+        { path: "/shipper/:id", view: ShipperView},
+        { path: "/about", view: About},
         { path: "/careers", view: Construction},
         { path: "/signup", view: Construction},
     ];
@@ -64,7 +68,7 @@ const router = async() => {
     }
 
     const view = new match.route.view(getParams(match));
-
+    document.body.scrollTop = 0;
     document.querySelector('.app>#app').innerHTML = await view.getHtml();
     document.querySelector('.app>header>#navbar').innerHTML = await view.getNav();
     document.querySelector('.app>#footer').innerHTML = await view.getFooter();
@@ -74,7 +78,7 @@ window.addEventListener("popstate", router);
 
 document.addEventListener("DOMContentLoaded", () => {
     document.body.addEventListener("click", e => {
-        console.log('debugging: ', e.target)
+        console.log('debugging: ', e)
         if (e.target.matches("[data-link]")) {
             e.preventDefault();
             console.log(e.target.href)
@@ -99,6 +103,10 @@ document.addEventListener("DOMContentLoaded", () => {
         if (e.target.matches("#login-icon")){
             e.preventDefault();
             NavigateTo("/login");
+        }
+        if (e.target.matches("#sl" || e.target.matches("#cl") || e.target.matches("#pl"))) {
+            e.preventDefault();
+            document.body.scrollTop = (e.target.href);
         }
     });
     router();

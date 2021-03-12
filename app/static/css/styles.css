@@ -4,6 +4,7 @@
 }
 
 html, body {
+    scroll-behavior: smooth;
     background-color: #ebf0ff;
     height: 100%;
     overflow-x: hidden;
