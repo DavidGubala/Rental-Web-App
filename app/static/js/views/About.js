@@ -11,6 +11,7 @@ export default class extends AbstractView{
         <div class="about-page">
             <div id="as1">
                 <h1>Our Vision</h1>
+                <p>
                     At Shipper, we focus our effort in challening the status quo and thinking differently.
                     Our products help envision a world in which everyone is given opportunity through an open 
                     logistics platform with a seamless user experience built on the most 
@@ -31,33 +32,33 @@ export default class extends AbstractView{
                 <div id = 'shipperb'>
                     <h3 id = 'btitle'>Shipper</h3>
                     <div id = "b1">
-                        <img src="/static/assets/about-page/.svg" alt="coffee">
+                        <img src="/static/assets/about-page/benefits/sb1.svg" alt="coffee">
                         <p>benefit 1</p>
                     </div>
                     <div id = "b2">
-                        <img src="/static/assets/about-page/.svg" alt="coffee">
+                        <img src="/static/assets/about-page/benefits/sb2.svg" alt="coffee">
                         <p>benefit 2</p>
                     </div>
                 </div>
                 <div id = 'carrierb'>
                     <h3 id = 'btitle'>Carrier</h3>
                     <div id = "b1">
-                        <img src="/static/assets/about-page/.svg" alt="coffee">
+                        <img src="/static/assets/about-page/benefits/cb1.svg" alt="coffee">
                         <p>benefit 3</p>
                     </div>
                     <div id = "b2">
-                        <img src="/static/assets/about-page/.svg" alt="coffee">
+                        <img src="/static/assets/about-page/benefits/cb2.svg" alt="coffee">
                         <p>benefit 4</p>
                     </div>
                 </div>
                 <div id = 'partnerb'>
                     <h3 id = 'btitle'>Partner</h3>
                     <div id = "b1">
-                        <img src="/static/assets/about-page/.svg" alt="coffee">
+                        <img src="/static/assets/about-page/benefits/pb1.svg" alt="coffee">
                         <p>benefit 5</p>
                     </div>
                     <div id = "b2">
-                        <img src="/static/assets/about-page/.svg" alt="coffee">
+                        <img src="/static/assets/about-page/benefits/pb2.svg" alt="coffee">
                         <p>benefit 6</p>
                     </div>
                 </div>

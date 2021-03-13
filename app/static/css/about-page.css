@@ -1,7 +1,7 @@
 .about-page{
     display: grid;
     font-family: "Montserrat", sans-serif;
-    grid-template-rows: 620px 350px 910px 507px;
+    grid-template-rows: 620px 420px 910px 507px;
     grid-template-columns: repeat(12, [col] 122px);
     column-gap: 16px;
 }
@@ -56,7 +56,7 @@
     background-color: #ebf0ff;
     display: grid;
     grid-template-columns: repeat(12, [col] 122px);
-    grid-template-rows: 70px 35px 35px 140px 70px;
+    grid-template-rows: 70px 35px 35px 210px 70px;
     column-gap: 16px;
 }
 
@@ -109,6 +109,7 @@
     grid-row-start: 3;
     grid-row-end: 4;
     justify-self: center;
+    align-self: end;
 }
 
 #as3>h1{
@@ -161,6 +162,7 @@
     font-weight: 300;
     justify-self: center;
     text-decoration-line: underline;
+    align-self: start;
 }
 
 #b1{
@@ -170,6 +172,28 @@
     grid-row-end: 3;
     color: #141F40;
     background-color: #e0e9ff;
+    margin-top: 15px;
+    border-radius: 6px;
+    display: grid;
+    grid-template-columns: 260px;
+    grid-template-rows: 122px 36px 122px;
+}
+
+#b1>img{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    justify-self: center;
+    align-self: end;
+}
+
+#b1>p{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    justify-self: center;
 }
 
 #b2{
@@ -179,6 +203,28 @@
     grid-row-end: 5;
     color: #141F40;
     background-color: #e0e9ff;
+    margin-top: 15px;
+    border-radius: 6px;
+    display: grid;
+    grid-template-columns: 260px;
+    grid-template-rows: 122px 36px 122px;
+}
+
+#b2>img{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    justify-self: center;
+    align-self: end;
+}
+
+#b2>p{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    justify-self: center;
 }
 
 #as4{
@@ -194,11 +240,24 @@
     column-gap: 16px;
 }
 
-
 #as4>h1{
     grid-column-start: 2;
     grid-column-end: 6;
     grid-row-start: 2;
     grid-row-end: 4;
     font-size: 48px;
+}
+#as4>p{
+    grid-column-start: 2;
+    grid-column-end: 6;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    font-size: 16px;
+}
+
+#as4>img{
+    grid-column-start: 7;
+    grid-column-end: 12;
+    grid-row-start: 2;
+    grid-row-end: 6;
 }
