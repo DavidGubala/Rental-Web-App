@@ -1,8 +1,9 @@
 const express  = require('express');
 const router = express.Router();
-const Carrier = require('../models/Carrier.js');
-const Licnese = require('../models/License.js');
-const Address = require('../models/Address.js');
+const Carrier = require('../models/Carrier');
+const License = require('../models/License');
+const Address = require('../models/Address');
+const Order = require('../models/Order');
 const bodyParser = require("body-parser");
 router.use(bodyParser.json());
 
@@ -21,7 +22,7 @@ router.post('/' , async (req,res)=>{
     const carrier = new Carrier(req.body);
     try{
         const savedCarrier = await carrier.save();
-        res.json(savedCarrier);
+        res.json({carrier: savedCarrier});
     }catch(err){
         res.json({message: err});
     }
@@ -150,5 +151,17 @@ router.delete('/:uid/license', async (req, res)=>{
         res.json({message: err});
     }
 });
+
+//Other Options
+// Get all orders associated with the carrier
+router.get('/:uid/orders', async (req, res)=>{
+    try{
+        const orders = await Order.find({carrierid: req.params.uid});
+        res.json(orders);
+    }catch(err){
+        res.json({message: err});
+    }
+});
+
 
 module.exports = router;

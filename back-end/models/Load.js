@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const TruckSchema = mongoose.Schema({ // Using dummy information for now
+const LoadSchema = mongoose.Schema({ // Using dummy information for now
     loadWeight: {       
         type: String,
         required: true
@@ -16,7 +16,11 @@ const TruckSchema = mongoose.Schema({ // Using dummy information for now
     destinationId :  {
         type: String,
         required: true
+    },
+    shipperId: {
+        type: String,
+        required: true
     }
 });
 
-module.exports = mongoose.model('Truck', LoadSchema);
+module.exports = mongoose.model('Load', LoadSchema);

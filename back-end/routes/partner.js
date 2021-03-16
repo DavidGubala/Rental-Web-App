@@ -1,7 +1,10 @@
 const express  = require('express');
 const router = express.Router();
-const Partner = require('../models/Partner.js');
-const Address = require('../models/Address.js');
+const Partner = require('../models/Partner');
+const Address = require('../models/Address');
+const Truck = require('../models/Truck');
+const Trailer = require('../models/Trailer');
+const Order = require('../models/Order');
 
 //Get Json list of all Partners
 router.get('/', async (req, res)=>{
@@ -97,6 +100,29 @@ router.delete('/:uid/address', async (req, res)=>{
         const removedPartnerAddress = await Address.deleteOne({_id: partner.addressId});
         const updatedPartner = await Partner.updateOne({_id: req.params.uid}, {addressId: 'none'});
         res.json(removedPartnerAddress);
+    }catch(err){
+        res.json({message: err});
+    }
+});
+
+// Other Options (get inventory, get orders)
+// Get Partner Inventory Rentals
+router.get('/:uid/inventory', async (req, res)=>{
+    try{
+        const trucks = await Truck.find({ownerId: req.params.uid});
+        const trailers = await Trailer.find({ownerId: req.params.uid});
+        const inv = trucks + trailers;
+        res.json(inv);
+    }catch(err){
+        res.json({message: err});
+    }
+});
+
+// Get all orders associated with the partner
+router.get('/:uid/orders', async (req, res)=>{
+    try{
+        const orders = await Order.find({otherId: req.params.uid});
+        res.json(orders);
     }catch(err){
         res.json({message: err});
     }

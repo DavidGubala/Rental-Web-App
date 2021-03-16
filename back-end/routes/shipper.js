@@ -1,7 +1,9 @@
 const express  = require('express');
 const router = express.Router();
-const Shipper = require('../models/Shipper.js');
-//const Address = require('../models/Address.js');
+const Shipper = require('../models/Shipper');
+const Address = require('../models/Address');
+const Load = require('../models/Load');
+const Order = require('../models/Order');
 
 //Get Json list of all Shippers
 router.get('/', async (req, res)=>{
@@ -98,6 +100,27 @@ router.delete('/:uid/address', async (req, res)=>{
         const removedShipperAddress = await Address.deleteOne({_id: shipper.addressId});
         const updatedShipper = await Shipper.updateOne({_id: req.params.uid}, {addressId: 'none'});
         res.json(removedShipperAddress);
+    }catch(err){
+        res.json({message: err});
+    }
+});
+
+//Other Options
+// Get Shipper Load List
+router.get('/:uid/loads', async (req, res)=>{
+    try{
+        const loads = await Load.find({shipperId: req.params.uid});
+        res.json(loads);
+    }catch(err){
+        res.json({message: err});
+    }
+});
+
+// Get all orders associated with the partner
+router.get('/:uid/orders', async (req, res)=>{
+    try{
+        const orders = await Order.find({otherId: req.params.uid});
+        res.json(orders);
     }catch(err){
         res.json({message: err});
     }

@@ -7,19 +7,23 @@ require('dotenv/config');
 app.use(bodyParser.json());
 
 //Import routes
-const carrierRoutes = require('./routes/carrier.js');
-const partnerRoutes = require('./routes/partner.js');
-const shipperRoutes = require('./routes/shipper.js');
-const rentalRoutes = require('./routes/rental.js');
+const carrierRoutes = require('./routes/carrier');
+const partnerRoutes = require('./routes/partner');
+const shipperRoutes = require('./routes/shipper');
+const rentalRoutes = require('./routes/rental');
+const truckRoutes = require('./routes/truck');
+const trailerRoutes = require('./routes/trailer');
+const orderRoutes = require('./routes/order');
+const loadRoutes = require('./routes/load');
 
 app.use('/carrier', carrierRoutes);
 app.use('/partner', partnerRoutes);
 app.use('/shipper', shipperRoutes);
 app.use('/rental', rentalRoutes);
-
-app.get('/', (req,res)=>{
-    res.send('We are on home')
-});
+app.use('/rental/truck', truckRoutes);
+app.use('/rental/trailer', trailerRoutes);
+app.use('/order', orderRoutes);
+app.use('/load', loadRoutes);
 
 mongoose.connect(
     process.env.DB_CONNECTION,
@@ -28,4 +32,5 @@ mongoose.connect(
     () => {console.log("connected to db")
 });
 
-app.listen(5050);
+//app.listen(5050);
+module.exports = app
