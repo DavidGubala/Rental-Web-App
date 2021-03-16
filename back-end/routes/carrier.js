@@ -22,7 +22,7 @@ router.post('/' , async (req,res)=>{
     const carrier = new Carrier(req.body);
     try{
         const savedCarrier = await carrier.save();
-        res.json({carrier: savedCarrier});
+        res.json(savedCarrier);
     }catch(err){
         res.json({message: err});
     }
@@ -93,7 +93,7 @@ router.put('/:uid/address', async (req, res)=>{
     }
 });
 
-//Delete Carrier 
+//Delete Address 
 router.delete('/:uid/address', async (req, res)=>{
     try{
         const carrier = await Carrier.findById(req.params.uid);

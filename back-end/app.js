@@ -32,5 +32,4 @@ mongoose.connect(
     () => {console.log("connected to db")
 });
 
-//app.listen(5050);
 module.exports = app

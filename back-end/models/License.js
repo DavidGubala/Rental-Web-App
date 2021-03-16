@@ -13,7 +13,10 @@ const LicenseSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    pics_loc:String
+    pics_loc:{
+        type: String,
+        default: 'none'
+    },
 });
 
 module.exports = mongoose.model('License', LicenseSchema);
