@@ -17,10 +17,10 @@ describe('Carrier Endpoints', () => {
     const res = await supertest(app).post('/carrier')
     .send({
         fname: 'David',
-        lname: 'Gubala',
+        lname: 'carrier',
         email: 'fake@gmail.com'
       })
-    expect(res.statusCode).toEqual(200)
+    .expect(200)
     testuid = res.body._id;
   })
   //GET ALL CARRIERS
@@ -73,7 +73,7 @@ describe('Carrier Endpoints', () => {
         country: 'USA',
         postalCode: '123456',
       })
-    expect(res.statusCode).toEqual(200)
+    .expect(200)
     testaddid = res.body._id;
   })
   //GET ONE ADDRESS
@@ -122,7 +122,7 @@ describe('Carrier Endpoints', () => {
         LicenseNumber: 'Chicago',
         expirationDate: 'IL'
       })
-    expect(res.statusCode).toEqual(200)
+    .expect(200)
     testlicid = res.body._id
   })
   //GET ONE LICENSE
@@ -157,6 +157,12 @@ describe('Carrier Endpoints', () => {
         throw new Error('Did not update successfully');
       }
     })
+  })
+  
+  //GET ALL ORDERS
+  it('should get a specific carriers orders', async () => {
+    const res = await supertest(app).get('/carrier/' + testuid + '/orders')
+    .expect(200)
   })
 
    //DELETE LICENSE

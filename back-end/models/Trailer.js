@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const TrailerSchema = mongoose.Schema({
-    trailerType: {       // Freight trailers, box trailers, cab-over, vans, etc.
+    trailerType: {       
         type: String,
         required: true
     },

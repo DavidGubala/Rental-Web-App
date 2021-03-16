@@ -25,7 +25,7 @@ const TruckSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    locationid : {
+    locationId : {
         type: String,
         required: true
     },
