@@ -71,7 +71,7 @@ describe('Carrier Endpoints', () => {
         city: 'Chicago',
         state: 'IL',
         country: 'USA',
-        postalCode: '123456',
+        postalCode: '123456'
       })
     .expect(200)
     testaddid = res.body._id;

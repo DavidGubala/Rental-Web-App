@@ -85,7 +85,6 @@ router.get('/:uid/address', async (req, res)=>{
 router.put('/:uid/address', async (req, res)=>{
     try{
         const shipper = await Shipper.findById(req.params.uid);
-        console.log(shipper)
         const updatedShipperAddress = await Address.updateOne({_id: shipper.addressId}, req.body);
         res.json(updatedShipperAddress);
     }catch(err){

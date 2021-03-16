@@ -69,7 +69,7 @@ describe('Partner Endpoints', () => {
         city: 'Chicago',
         state: 'IL',
         country: 'USA',
-        postalCode: '123456',
+        postalCode: '123456'
       })
     .expect(200)
     testaddid = res.body._id;
@@ -99,7 +99,7 @@ describe('Partner Endpoints', () => {
       city: 'Somewhere',
       state: 'ON',
       country: 'CA',
-      postalCode: '891011',
+      postalCode: '891011'
     })
     .expect('Content-Type', /json/)
     .expect(200)

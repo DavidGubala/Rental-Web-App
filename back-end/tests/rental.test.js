@@ -120,7 +120,7 @@ describe('Rental Endpoints', () => {
         year: '2017',
         price: '895',
         locationId: 'dummy1',
-        ownerId: 'dummy1',
+        ownerId: 'dummy1'
       })
       .expect('Content-Type', /json/)
       .expect(200)
@@ -130,7 +130,13 @@ describe('Rental Endpoints', () => {
         }
       })
     })
-    
+
+    //GET ALL Rentals
+    it('should get all rentals', async () => {
+        const res = await supertest(app).get('/rental/inventory')
+        console.log(res.body)
+    })
+        
     //DELETE TRAILER
     it('should delete a specific trailer', async () => {
       const res = await supertest(app).delete('/rental/trailer/' + testtrailerid)
@@ -153,4 +159,5 @@ describe('Rental Endpoints', () => {
         }
       })
     })
+
 })

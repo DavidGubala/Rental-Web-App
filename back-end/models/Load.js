@@ -20,7 +20,12 @@ const LoadSchema = mongoose.Schema({ // Using dummy information for now
     shipperId: {
         type: String,
         required: true
+    },
+    carrierId: {
+        type: String,
+        default: 'available'
     }
+
 });
 
 module.exports = mongoose.model('Load', LoadSchema);
