@@ -15,6 +15,7 @@ const truckRoutes = require('./routes/truck');
 const trailerRoutes = require('./routes/trailer');
 const orderRoutes = require('./routes/order');
 const loadRoutes = require('./routes/load');
+const loginRoutes = require('./routes/login');
 
 app.use('/carrier', carrierRoutes);
 app.use('/partner', partnerRoutes);
@@ -24,6 +25,8 @@ app.use('/rental/truck', truckRoutes);
 app.use('/rental/trailer', trailerRoutes);
 app.use('/order', orderRoutes);
 app.use('/load', loadRoutes);
+app.use('/login', loginRoutes);
+
 
 mongoose.connect(
     process.env.DB_CONNECTION,
