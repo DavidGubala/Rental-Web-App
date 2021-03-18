@@ -1,0 +1,81 @@
+.register{
+    display: grid;
+    font-family: "Montserrat", sans-serif;
+    grid-column: 2;
+}
+.register-form{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    display: grid;
+    font-family: "Montserrat", sans-serif;
+    grid-template-rows: 140px 70px 35px 17px 35px 17px 35px 17px 35px 17px 35px 17px 35px 17px 35px 35px;
+    grid-template-columns: repeat(6, [col] 122px);
+    column-gap: 16px;
+}
+
+.graphic{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    display: grid;
+    grid-template-rows: 140px 70px 35px 17px 35px 17px 35px 17px 35px 17px 35px 17px 35px 35px;
+    grid-template-columns: repeat(6, [col] 122px);
+    column-gap: 16px;
+}
+
+.register-form>h1{
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    font-size: 48px;
+    align-self: end;
+}
+
+.register-form>select{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+input[id = fname]{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 5;
+    grid-row-end: 6;
+}
+
+input[id = lname]{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 7;
+    grid-row-end: 8;
+}
+
+input[id = email]{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 9;
+    grid-row-end: 10;
+}
+
+input[id = pass]{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start:11;
+    grid-row-end: 12;
+}
+
+input[type = submit]{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 13;
+    grid-row-end: 14;
+}
+
+.register-form>p{
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start: 15;
+    grid-row-end: 16;
+}

@@ -3,7 +3,6 @@ import AbstractView from "./AbstractView.js";
 export default class extends AbstractView{
     constructor(params){
         super(params);
-        this.setTitle("Rental App");
     }
 
     async getHtml() {
@@ -15,7 +14,7 @@ export default class extends AbstractView{
                         With upfront pricing, instant booking, quick pay, and quality rentals, 
                         Shipper puts you in the driver's seat. It's the one app for every haul.
                     </p>
-                    <button><span>Sign Up</span></button>
+                    <button class = 'su'><span class = 'su'>Sign Up</span></button>
             </div>
             <div id="ci2">
                 <div id="t1">

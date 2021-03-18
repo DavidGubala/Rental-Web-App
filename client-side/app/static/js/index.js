@@ -8,81 +8,82 @@ import Shipper from "./views/Shipper.js";
 import ShipperView from "./views/ShipperView.js";
 import Rental from "./views/Rental.js";
 import RentalView from "./views/RentalView.js";
-import Order from "./views/Order.js";
 import OrderView from "./views/OrderView.js";
 import Login from "./views/Login.js";
+import Register from "./views/Register.js";
 import Construction from "./views/ConstructionView.js";
 
-const pathToRegex = path => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
+$(function() {
+    
+    const pathToRegex = path => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
 
-const getParams = match => {
-    const values = match.result.slice(1);
-    const keys = Array.from(match.route.path.matchAll(/:(\w+)/g)).map(result => result[1]);
+    const getParams = match => {
+        const values = match.result.slice(1);
+        const keys = Array.from(match.route.path.matchAll(/:(\w+)/g)).map(result => result[1]);
+        return Object.fromEntries(keys.map((key,i) => {
+            return [key, values[i]];
+        }));
 
-    return Object.fromEntries(keys.map((key,i) => {
-        return [key, values[i]];
-    }));
+    };
 
-};
+    const NavigateTo = url => {
+        history.pushState(null, null, url);
+        router();
+    };
 
-const NavigateTo = url => {
-    history.pushState(null, null, url);
-    router();
-};
+    const router = async() => {
+        const routes = [
+            { path: "/", view: Home },
+            { path: "/partner", view: Partner},
+            { path: "/partner/:id", view: PartnerView},
+            { path: "/carrier", view: Carrier},
+            { path: "/carrier/:id", view: CarrierView},
+            { path: "/load", view: Construction},
+            { path: "/load/:id", view: Construction},
+            { path: "/rental", view: Rental},
+            { path: "/rental/:id", view: RentalView},
+            { path: "/order/:id", view: OrderView},
+            { path: "/login", view: Login},
+            { path: "/register", view: Register},
+            { path: "/shipper", view: Shipper},
+            { path: "/shipper/:id", view: ShipperView},
+            { path: "/about", view: About},
+            { path: "/careers", view: Construction}
+        ];
 
-const router = async() => {
-    const routes = [
-        { path: "/", view: Home },
-        { path: "/partner", view: Partner},
-        { path: "/partner/:id", view: PartnerView},
-        { path: "/carrier", view: Carrier},
-        { path: "/carrier/:id", view: CarrierView},
-        { path: "/carrier/:id/inventory", view: Construction},
-        { path: "/load", view: Construction},
-        { path: "/load/:id", view: Construction},
-        { path: "/rental", view: Construction},
-        { path: "/rental/:id", view: Construction},
-        { path: "/order", view: Order},
-        { path: "/order/:id", view: OrderView},
-        { path: "/login", view: Login},
-        { path: "/shipper", view: Shipper},
-        { path: "/shipper/:id", view: ShipperView},
-        { path: "/about", view: About},
-        { path: "/careers", view: Construction},
-        { path: "/signup", view: Construction},
-    ];
+        const potentialMatches = routes.map(route => {
+            return {
+                route: route,
+                result: location.pathname.match(pathToRegex(route.path))
+            };
+        });
 
-    const potentialMatches = routes.map(route => {
-        return {
-            route: route,
-            result: location.pathname.match(pathToRegex(route.path))
-        };
-    });
+        let match = potentialMatches.find(potentialMatch => potentialMatch.result !== null);
 
-    let match = potentialMatches.find(potentialMatch => potentialMatch.result !== null);
-
-    if (!match) {
+        if (!match) {
         match = {
             route: routes[0],
             result: [location.pathname]
         };
-    }
+        }
 
-    const view = new match.route.view(getParams(match));
-    document.body.scrollTop = 0;
-    document.querySelector('.app>#app').innerHTML = await view.getHtml();
-    document.querySelector('.app>header>#navbar').innerHTML = await view.getNav();
-    document.querySelector('.app>#footer').innerHTML = await view.getFooter();
-};
+        const view = new match.route.view(getParams(match));
+        document.body.scrollTop = 0;
+        
+		$('.app>#app').html(await view.getHtml());
+		$('.app>header>#navbar').html(await view.getNav());
+		$('.app>#footer').html(await view.getFooter());
+        //document.querySelector('.app>#app').innerHTML = await view.getHtml();
+        //document.querySelector('.app>header>#navbar').innerHTML = await view.getNav();
+        //document.querySelector('.app>#footer').innerHTML = await view.getFooter();
+        await view.getJS();
+    };
+    
+    window.addEventListener("popstate", router);
 
-window.addEventListener("popstate", router);
-
-document.addEventListener("DOMContentLoaded", () => {
     document.body.addEventListener("click", e => {
-        console.log('debugging: ', e)
         if (e.target.matches("[data-link]")) {
             e.preventDefault();
-            console.log(e.target.href)
             NavigateTo(e.target.href);
         }
         if (e.target.matches(".logo")) {
@@ -97,6 +98,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         if (e.target.matches(".lms")){
             NavigateTo("/shipper");
+        }
+        if (e.target.matches(".su")){
+            NavigateTo("/register");
         }
         if (e.target.matches(".gbh")){
             NavigateTo("/");

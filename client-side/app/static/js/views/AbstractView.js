@@ -12,6 +12,11 @@ export default class{
         return ``;
     }
 
+    
+    async getJS(){
+        return '';
+    }
+
     async getNav(){ // eventually I'll use the backend to check if the user is logged in and change this from having Login/Signup
         return `
         <a href="/" class="nav__link" data-link id = "logo"><img class="logo" src="/static/assets/nav-bar/logo.svg" alt="site logo"></a>
@@ -28,7 +33,7 @@ export default class{
         </div>
         
         <a href="/login" class="nav__link" data-link id = "login">Login<img id="login-icon" src="/static/assets/nav-bar/icons/account-icon.svg"></a>
-        <a href="/signup" class="nav__link btn" data-link id = "signup">Sign Up</a>
+        <a href="/register" class="nav__link btn" data-link id = "signup">Sign Up</a>
         `;
     }
     async getFooter(){

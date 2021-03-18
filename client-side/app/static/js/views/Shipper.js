@@ -3,7 +3,6 @@ import AbstractView from "./AbstractView.js";
 export default class extends AbstractView{
     constructor(params){
         super(params);
-        this.setTitle("Shipper");
     }
 
     async getHtml() {
@@ -15,7 +14,7 @@ export default class extends AbstractView{
                     With instant quotes, real-time tracking, and 24/7 access to trusted carriers, 
                     Shipper helps streamline your operations.
                 </p>
-                <button><span>Sign Up</span></button>
+                <button class = 'su'><span class = 'su'>Sign Up</span></button>
         </div>
         <div id="si2">
             <div id="t1">

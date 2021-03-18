@@ -3,7 +3,6 @@ import AbstractView from "./AbstractView.js";
 export default class extends AbstractView{
     constructor(params){
         super(params);
-        this.setTitle("Rental App");
     }
 
     async getHtml() {
@@ -15,7 +14,7 @@ export default class extends AbstractView{
                     With automatic rental management options. 
                     and Shipper is helping give control to Partners 
                 </p>
-                <button><span>Sign Up</span></button>
+                <button class = 'su'><span class = 'su'>Sign Up</span></button>
         </div>
         <div id="pi2">
             <div id="t1">
