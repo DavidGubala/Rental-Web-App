@@ -114,11 +114,12 @@ describe('Partner Endpoints', () => {
     const res = await supertest(app).get('/partner/' + testuid + '/orders')
     .expect(200)
   })
-  //GET ALL ORDERS
+  //GET ALL rentals
   it('should get a specific partner orders', async () => {
     const res = await supertest(app).get('/partner/' + testuid + '/inventory')
     .expect(200)
   })
+  /*
    //DELETE ADDRESS
    it('should delete a specific partner', async () => {
     const res = await supertest(app).delete('/partner/' + testuid+ '/address/')
@@ -141,4 +142,5 @@ describe('Partner Endpoints', () => {
       }
     })
   })
+  */
 })

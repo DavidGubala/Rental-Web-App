@@ -30,21 +30,26 @@ router.post('/register' , async (req,res)=>{
 
 // LOGIN Action
 router.post('/', async (req, res)=>{
+    console.log(req.body)
     let user = ''
     switch(req.body.loginType){
-        case 'shipper':
+        case "shipper":
             user = await Shipper.findOne({email: req.body.email}).lean();
             break;
-        case 'carrier':
+        case "carrier":
             user = await Carrier.findOne({email:  req.body.email}).lean();
-            console.log(req.body)
             break;
-        case 'partner':
+        case "partner":
             user = await Partner.findOne({email:  req.body.email}).lean();
             break;
     }
+    console.log(user)
     const login = await Login.findOne({uid: user._id});
-    if(await bcrypt.compare(login.pass, req.body.pass)) {
+    console.log(login)
+    
+    console.log(await bcrypt.compare(req.body.pass, login.pass))
+
+    if(await bcrypt.compare(req.body.pass, login.pass)) {
         const token = jwt.sign({id: login._id, uid: login.uid}, JWTsecret)
         return res.json({
             status: 'ok',

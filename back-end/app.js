@@ -2,6 +2,8 @@ const express =  require('express');
 const app = express();
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const cors = require('cors')
+
 require('dotenv/config');
 
 app.use(bodyParser.json());
@@ -17,6 +19,9 @@ const orderRoutes = require('./routes/order');
 const loadRoutes = require('./routes/load');
 const loginRoutes = require('./routes/login');
 
+
+app.use(cors({origin: true}))
+app.options('*', cors({origin: true}))
 app.use('/carrier', carrierRoutes);
 app.use('/partner', partnerRoutes);
 app.use('/shipper', shipperRoutes);

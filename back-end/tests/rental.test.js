@@ -130,7 +130,7 @@ describe('Rental Endpoints', () => {
         }
       })
     })
-
+    /*
     //GET ALL Rentals
     it('should get all rentals', async () => {
         const res = await supertest(app).get('/rental/inventory')
@@ -158,5 +158,5 @@ describe('Rental Endpoints', () => {
         }
       })
     })
-
+    */
 })

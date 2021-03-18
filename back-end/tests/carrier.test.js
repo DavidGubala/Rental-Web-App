@@ -164,7 +164,7 @@ describe('Carrier Endpoints', () => {
     const res = await supertest(app).get('/carrier/' + testuid + '/orders')
     .expect(200)
   })
-
+  /*
    //DELETE LICENSE
    it('should delete a specific carrier', async () => {
     const res = await supertest(app).delete('/carrier/' + testuid+ '/license/')
@@ -198,4 +198,5 @@ describe('Carrier Endpoints', () => {
       }
     })
   })
+  */
 })

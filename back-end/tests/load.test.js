@@ -63,6 +63,7 @@ describe('Load Endpoints', () => {
         }
       })
     })
+    /*
     //DELETE LOAD
     it('should delete a specific load', async () => {
       const res = await supertest(app).delete('/load/' + testloadid)
@@ -74,5 +75,5 @@ describe('Load Endpoints', () => {
         }
       })
     })
-
+    */
 })

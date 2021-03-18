@@ -61,6 +61,7 @@ describe('Order Endpoints', () => {
         }
       })
     })
+    /*
     //DELETE ORDER
     it('should delete a specific order', async () => {
       const res = await supertest(app).delete('/order/' + testorderid)
@@ -72,5 +73,5 @@ describe('Order Endpoints', () => {
         }
       })
     })
-
+    */
 })

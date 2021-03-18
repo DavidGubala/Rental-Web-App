@@ -121,7 +121,7 @@ describe('Shipper Endpoints', () => {
     const res = await supertest(app).get('/shipper/' + testuid + '/loads')
     .expect(200)
   })
-  
+  /*
    //DELETE ADDRESS
    it('should delete a specific shipper', async () => {
     const res = await supertest(app).delete('/shipper/' + testuid+ '/address/')
@@ -145,4 +145,5 @@ describe('Shipper Endpoints', () => {
       }
     })
   })
+  */
 })

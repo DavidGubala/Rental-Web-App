@@ -17,9 +17,14 @@
     grid-column-start: 2;
     grid-column-end: 3;
     display: grid;
-    grid-template-rows: 140px 70px 35px 17px 35px 17px 35px 17px 35px 17px 35px 17px 35px 35px;
-    grid-template-columns: repeat(6, [col] 122px);
+    grid-template-rows: 70px auto;
     column-gap: 16px;
+}
+.graphic>img{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
 }
 
 .register-form>h1{

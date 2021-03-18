@@ -13,8 +13,9 @@ import Login from "./views/Login.js";
 import Register from "./views/Register.js";
 import Construction from "./views/ConstructionView.js";
 
+localStorage.setItem('token', 0)
+
 $(function() {
-    
     const pathToRegex = path => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
 
     const getParams = match => {
@@ -71,12 +72,13 @@ $(function() {
         document.body.scrollTop = 0;
         
 		$('.app>#app').html(await view.getHtml());
-		$('.app>header>#navbar').html(await view.getNav());
+		$('.app>header>#navbar').html(await view.getNav(localStorage.getItem('token')));
 		$('.app>#footer').html(await view.getFooter());
+        await view.getJS();
+
         //document.querySelector('.app>#app').innerHTML = await view.getHtml();
         //document.querySelector('.app>header>#navbar').innerHTML = await view.getNav();
         //document.querySelector('.app>#footer').innerHTML = await view.getFooter();
-        await view.getJS();
     };
     
     window.addEventListener("popstate", router);

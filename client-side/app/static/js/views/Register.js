@@ -5,7 +5,7 @@ export default class extends AbstractView{
         super(params);
     }
 
-    async getJS(){
+    async getJS(token){
         $('.userType').change(function() {
             switch($('.userType').val()){
                 case 'shipper':
@@ -23,11 +23,89 @@ export default class extends AbstractView{
         $( ".register-form" ).submit(function( event ) {
             //alert( "Handler for .submit() called." );
             event.preventDefault();
+            //Declare all variables from form
+            let ut = $('.userType').val()
+            let fn = $('#fname').val()
+            let ln = $('#lname').val()
+            let em = $('#email').val()
+            let p = $('#pass').val()
             // Here we can have checks
-            // then after checks, send a request to the backend.
+            // for now, ill just assume user types in things correctly
+            // after checks, send a request to the backend.
+            // create json data for creating a new user based on user type and creating a login
+            var newUser = {
+                "fname": fn,
+                "lname": ln,
+                "email": em
+            }
+            var newLogin ={}
+            var login ={}
+            console.log(newUser)
+            let link = ''
+            switch(ut){
+                case 'shipper':
+                    link = 'http://localhost:5050/shipper'
+                    break
+                case 'carrier':
+                    link = 'http://localhost:5050/carrier'
+                    break
+                case 'partner':
+                    link = 'http://localhost:5050/partner'
+                    break
+            }
 
+            $.ajax({
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    "Access-Control-Allow-Origin": "http://localhost:5040"
+                },
+                type: 'POST',
+                url : link,
+                data: JSON.stringify(newUser),
+                'success': function(res){
+                    console.log(res)
+                    newLogin = {
+                        'uid': res._id,
+                        'pass': $('#pass').val()
+                    }
+                    $.ajax({
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json',
+                            "Access-Control-Allow-Origin": "http://localhost:5040"
+                        },
+                        type: 'POST',
+                        url : 'http://localhost:5050/login/register',
+                        data: JSON.stringify(newLogin),
+                        'success': function(res){
+                            console.log(res)
+                            login = {
+                                'loginType': ut,
+                                'email': em,
+                                'pass':  p
+                            }
+                            console.log(login)
+                            $.ajax({
+                                headers: {
+                                    'Accept': 'application/json',
+                                    'Content-Type': 'application/json',
+                                    "Access-Control-Allow-Origin": "http://localhost:5040"
+                                },
+                                type: 'POST',
+                                url : 'http://localhost:5050/login',
+                                data: JSON.stringify(login),
+                                'success': function(res){
+                                    if(res.status == 'ok'){
+                                        localStorage.setItem('token', res.data)
+                                    }
+                                }
+                            });
+                        }
+                    });
+                }
+            });
           });
-
     }
 
     async getHtml() {
