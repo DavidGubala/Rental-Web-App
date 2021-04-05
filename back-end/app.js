@@ -19,7 +19,6 @@ const orderRoutes = require('./routes/order');
 const loadRoutes = require('./routes/load');
 const loginRoutes = require('./routes/login');
 
-
 app.use(cors({origin: true}))
 app.options('*', cors({origin: true}))
 app.use('/carrier', carrierRoutes);

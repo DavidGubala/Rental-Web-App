@@ -54,6 +54,7 @@ export default class extends AbstractView{
                     break
             }
 
+            //Ajax call to create the new user
             $.ajax({
                 headers: {
                     'Accept': 'application/json',
@@ -65,10 +66,12 @@ export default class extends AbstractView{
                 data: JSON.stringify(newUser),
                 'success': function(res){
                     console.log(res)
+                    newUserId = res._id
                     newLogin = {
-                        'uid': res._id,
+                        'uid': newUserId,
                         'pass': $('#pass').val()
                     }
+                    //Ajax call to register the new user (add userid and pass to db)
                     $.ajax({
                         headers: {
                             'Accept': 'application/json',
@@ -86,6 +89,7 @@ export default class extends AbstractView{
                                 'pass':  p
                             }
                             console.log(login)
+                            //Ajax call to login the user once they have registered
                             $.ajax({
                                 headers: {
                                     'Accept': 'application/json',
@@ -98,6 +102,18 @@ export default class extends AbstractView{
                                 'success': function(res){
                                     if(res.status == 'ok'){
                                         localStorage.setItem('token', res.data)
+                                        switch(ut){
+                                            case 'shipper':
+                                                typelink = '/shipper/'
+                                                break
+                                            case 'carrier':
+                                                typelink = '/carrier/'
+                                                break
+                                            case 'partner':
+                                                typelink = '/partner/'
+                                                break
+                                        }
+                                        window.location.href = typelink + newUserId
                                     }
                                 }
                             });
