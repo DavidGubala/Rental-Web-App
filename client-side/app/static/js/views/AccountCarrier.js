@@ -152,24 +152,91 @@ export default class extends AbstractView{
             }
 
             function RenderAccountSettings(viewingID){
+
                 $('#account-content').html(`
-                    <h3>Account Settings</h3>
-                    <form class="account-form">
-                        <input type="text" id="fname" name="firstname" placeholder="First Name..">
-                        <input type="text" id="lname" name="lastname" placeholder="Last Name..">
-                        <input type="text" id="email" name="email" placeholder="Your email address..">
-                        <input type="text" id="pass" name="pass" placeholder="Password..">
-                        <input type="submit" value="Edit Account">
-                    </form>
+                    <div id = 'settings-content'>
+                        <h3>Account Settings</h3>
+                        <p id='name'>Dummy User</p>
+                        <p id='email'>spam@testingemail.com</p>
+                        <p id='phone'>555-555-5555</p>
+                        <p id='street'>1234 W. Loyola Ln.</p>
+                        <p id='csz'>Chicago, IL 60656</p>
+                        <div class='edit-btn'>Edit Account</div>
+                    </div>
                 `)
+
+                $('.edit-btn').click(function(){
+                    console.log('edit')
+                    $('#account-content').html(`
+                        <div id = 'edit-account-content'>
+                            <h3>Account Settings</h3>
+                            <form class="account-form">
+                                <p id = 'fs1'>Contact Info.</p>
+                                <input type="text" id="fname" name="firstname" placeholder="Dummy">
+                                <input type="text" id="lname" name="lastname" placeholder="User">
+
+                                <input type="text" id="email" name="email" placeholder="spam@testingemail.com">
+                                <input type="text" id="phone" name="phone" placeholder="555-555-5555">
+                                
+                                <p id = 'fs2'>Password</p>
+                                <input type="text" id="pass" name="pass" placeholder="Password..">
+                                <input type="text" id="cpass" name="conf-pass" placeholder="Confirm Password..">
+                                
+                                <p id = 'fs3'>Address</p>
+                                <input type="text" id="street" name="street" placeholder="1234 W. Loyola Ln.">
+                                <input type="text" id="city" name="city" placeholder="Chicago">
+                                <input type="text" id="state" name="state" placeholder="Illinois">
+                                <input type="text" id="country" name="state" placeholder="United States">
+                                <input type="text" id="postalcode" name="postalcode" placeholder="60656">
+
+                                <div class='save-edit-btn'>Save Edit</div>
+                                <div class='cancel-edit-btn'>Cancel Edit</div>
+                            </form>
+                        </div>
+                    `)
+                    
+                    $('.save-edit-btn').click(function(){
+                        let editsPresent = false
+                        //If edits are made, then save them
+                        if(editsPresent){
+                            //ajax call to save the edits
+                        }
+                        RenderAccountSettings()
+                    })
+
+                    $('.cancel-edit-btn').click(function(){
+                        RenderAccountSettings()
+                    })
+
+                })
+
                 RenderAccountSideNav(viewingID, 'settings')
                 sideNavFunc()
             }
 
             function RenderLicenseSettings(viewingID){
-                $('#account-content').html(`
-                    <h3>License Settings</h3>
-                `)
+                let hasLicense = true;
+                if(hasLicense){
+                    $('#account-content').html(`
+                        <div id = 'license-content'>
+                            <h3>License Settings</h3>
+                            <p id='type'>CDL</p>
+                            <p id='licnumber'>G172-749HSNU18R81BF8</p>
+                            <p id='expiration'>06-2024</p>
+                            <div class='upload-btn'>ReUpload License</div>
+                        </div>
+                    `)
+                }else{
+                    $('#account-content').html(`
+                        <div id = 'license-content'>
+                            <h3>License Settings</h3>
+                            <p>You have no license on record.</p>
+                            <p>Usability will be limited</p>
+                            <div class='upload-btn'>Upload License</div>
+                        </div>
+                    `)
+                }
+
                 RenderAccountSideNav(viewingID, 'license')
                 sideNavFunc()
             }

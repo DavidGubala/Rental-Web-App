@@ -41,14 +41,17 @@
     display: grid;
     justify-content: center;
     padding-top: 10px;
+    transition: all 0.61s ease 0s;
+    border-radius: 6px;
 }
 
 #account-side-nav>.side-link:hover{
     background-color: #ffe39d;
+    cursor: pointer;
 }
 
 #account-side-nav>.selected{
-    background-color: #ffe39d;
+    background-color: #ffc83b;
 }
 
 #account-content{
@@ -58,3 +61,202 @@
     grid-row-end: 5;
     background-color: #ebf0ff;
 }
+
+#settings-content{
+    display: grid;
+    grid-template-rows: 35px 30px 30px 30px 30px;
+    grid-template-columns: repeat(10, [col] 122px);
+    column-gap: 16px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+#settings-content>h3{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+#settings-content>p{
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+#settings-content>.edit-btn{
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    background-color: #FFB700;
+    border-radius: 6px;
+    transition: all 0.61s ease 0s;
+}
+
+#settings-content>.edit-btn:hover{
+    background-color: #ffe39d;
+}
+
+#edit-account-content{
+    display: grid;
+    grid-template-rows: 35px auto;
+    grid-template-columns: repeat(10, [col] 122px);
+    column-gap: 16px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+#edit-account-content>h3{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+#edit-account-content>.account-form{
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    display: grid;
+    grid-template-rows: repeat(10, [row] 30px);
+    grid-template-columns: repeat(4, [col] 122px);
+    column-gap: 16px;
+}
+
+.account-form>.save-edit-btn{
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    background-color: #294dbb;
+    color: #c4cce2;
+    border-radius: 6px;
+    transition: all 0.61s ease 0s;
+}
+
+.account-form>.save-edit-btn:hover{
+    background-color: #4b69c4;
+}
+.account-form>.cancel-edit-btn{
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    background-color: #ff0000;
+    color: #c4cce2;
+    border-radius: 6px;
+    transition: all 0.61s ease 0s;
+}
+
+.account-form>.cancel-edit-btn:hover{
+    background-color: #ff9d9d;
+}
+
+.account-form>#fs1{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+.account-form>#fname{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+.account-form>#lname{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+.account-form>#email{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+.account-form>#phone{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+.account-form>#fs2{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 4;
+    grid-row-end: 5;
+}
+
+.account-form>#pass{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 5;
+    grid-row-end: 6;
+}
+
+.account-form>#cpass{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 5;
+    grid-row-end: 6;
+}
+
+.account-form>#fs3{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 6;
+    grid-row-end: 7;
+}
+
+.account-form>#street{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 7;
+    grid-row-end: 8;
+}
+
+.account-form>#city{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 8;
+    grid-row-end: 9;
+}
+
+.account-form>#state{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 8;
+    grid-row-end: 9;
+}
+
+.account-form>#country{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 9;
+    grid-row-end: 10;
+}
+
+.account-form>#postalcode{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 9;
+    grid-row-end: 10;
+}
+

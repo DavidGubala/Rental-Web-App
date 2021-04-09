@@ -27,6 +27,7 @@ nav>#shipper, nav>#carrier, nav>#partner, nav>#about, nav>#login, nav>#signup{
     transition: all 0.61s ease 0s;
     padding: 10px;
     border-radius: 6px;
+    align-self: center;
 }
 
 nav>#shipper:hover, nav>#carrier:hover, nav>#partner:hover, nav>#about:hover{
@@ -51,8 +52,6 @@ nav>#shipper {
     grid-column-end: 3;
     grid-row-start: 2;
     grid-row-end: 3;
-    transition: 1s;
-    align-self: center;
 }
 
 nav>#carrier {
@@ -60,8 +59,6 @@ nav>#carrier {
     grid-column-end: 4;
     grid-row-start: 2;
     grid-row-end: 3;
-    transition: 1s;
-    align-self: center;
 }
 
 nav>#partner {
@@ -69,8 +66,6 @@ nav>#partner {
     grid-column-end: 5;
     grid-row-start: 2;
     grid-row-end: 3;
-    transition: 1s;
-    align-self: center;
 }
 
 nav>#about {
@@ -78,8 +73,6 @@ nav>#about {
     grid-column-end: 6;
     grid-row-start: 2;
     grid-row-end: 3;
-    transition: 1s;
-    align-self: center;
 }
 
 nav>div{

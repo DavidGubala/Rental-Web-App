@@ -43,35 +43,35 @@
     grid-row-end: 4;
 }
 
-input[id = fname]{
+.register-form>input[id = fname]{
     grid-column-start: 2;
     grid-column-end: 4;
     grid-row-start: 5;
     grid-row-end: 6;
 }
 
-input[id = lname]{
+.register-form>input[id = lname]{
     grid-column-start: 2;
     grid-column-end: 4;
     grid-row-start: 7;
     grid-row-end: 8;
 }
 
-input[id = email]{
+.register-form>input[id = email]{
     grid-column-start: 2;
     grid-column-end: 4;
     grid-row-start: 9;
     grid-row-end: 10;
 }
 
-input[id = pass]{
+.register-form>input[id = pass]{
     grid-column-start: 2;
     grid-column-end: 4;
     grid-row-start:11;
     grid-row-end: 12;
 }
 
-input[type = submit]{
+.register-form>input[type = submit]{
     grid-column-start: 2;
     grid-column-end: 4;
     grid-row-start: 13;
