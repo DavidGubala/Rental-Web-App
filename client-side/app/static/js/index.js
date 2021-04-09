@@ -74,7 +74,7 @@ $(function() {
 		$('.app>#app').html(await view.getHtml());
 		$('.app>header>#navbar').html(await view.getNav(localStorage.getItem('token')));
 		$('.app>#footer').html(await view.getFooter());
-        await view.getJS();
+        await view.getJS(localStorage.getItem('token'));
 
         //document.querySelector('.app>#app').innerHTML = await view.getHtml();
         //document.querySelector('.app>header>#navbar').innerHTML = await view.getNav();

@@ -1,0 +1,45 @@
+#account-main{
+    display: grid;
+    font-family: "Montserrat", sans-serif;
+    grid-template-rows: 35px 70px 35px auto;
+    grid-template-columns: repeat(12, [col] 122px);
+    column-gap: 16px;
+}
+
+#account-title{
+    grid-column-start: 2;
+    grid-column-end: 6;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+#account-side-nav{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 4;
+    display: grid;
+    grid-template-rows: 70px 70px 70px 70px;
+    background-color: #e0e9ff;
+}
+
+#account-side-nav>.side-link{
+    display: grid;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+#account-side-nav>.side-link:hover{
+    background-color: #ffe39d;
+}
+
+#account-side-nav>.selected{
+    background-color: #ffe39d;
+}
+
+#account-content{
+    grid-column-start: 3;
+    grid-column-end: 12;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    background-color: #ebf0ff;
+}
