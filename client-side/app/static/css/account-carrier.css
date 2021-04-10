@@ -98,6 +98,25 @@
 
 #settings-content>.edit-btn:hover{
     background-color: #ffe39d;
+    cursor: pointer;
+}
+
+#settings-content>.view-profile-btn{
+    grid-column-start: 5;
+    grid-column-end: 6;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    background-color: #6f90f3;
+    border-radius: 6px;
+    transition: all 0.61s ease 0s;
+}
+
+#settings-content>.view-profile-btn:hover{
+    background-color: #ffe39d;
+    cursor: pointer;
 }
 
 #edit-account-content{
@@ -143,6 +162,7 @@
 
 .account-form>.save-edit-btn:hover{
     background-color: #4b69c4;
+    cursor: pointer;
 }
 .account-form>.cancel-edit-btn{
     grid-column-start: 4;
@@ -160,6 +180,7 @@
 
 .account-form>.cancel-edit-btn:hover{
     background-color: #ff9d9d;
+    cursor: pointer;
 }
 
 .account-form>#fs1{
@@ -260,3 +281,83 @@
     grid-row-end: 10;
 }
 
+#license-content{
+    display: grid;
+    grid-template-rows: 35px 30px 30px 30px 30px;
+    grid-template-columns: repeat(10, [col] 122px);
+    column-gap: 16px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+#license-content>#lic-s1{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+#license-content>#lic-s2{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+#license-content>#lic-s3{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+#license-content>#lic-s4{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 4;
+    grid-row-end: 5;
+}
+
+#license-content>.upload-btn{
+    grid-column-start: 4;
+    grid-column-end: 6;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    background-color: #FFB700;
+    border-radius: 6px;
+    transition: all 0.61s ease 0s;
+}
+
+#license-content>.upload-btn:hover{
+    background-color: #ffe39d;
+    cursor: pointer;
+}
+
+#profile-content{
+    grid-column-start: 2;
+    grid-column-end: 12;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    display: grid;
+    grid-template-rows: 35px 30px 30px 30px 30px;
+    grid-template-columns: repeat(10, [col] 122px);
+    column-gap: 16px;
+}
+
+#profile-content>.account-settings-btn{
+    grid-column-start: 4;
+    grid-column-end: 6;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    background-color: #6f90f3;
+    border-radius: 6px;
+    transition: all 0.61s ease 0s;
+}
+
+#profile-content>.account-settings-btn:hover{
+    background-color: #ffe39d;
+    cursor: pointer;
+}

@@ -162,8 +162,13 @@ export default class extends AbstractView{
                         <p id='street'>1234 W. Loyola Ln.</p>
                         <p id='csz'>Chicago, IL 60656</p>
                         <div class='edit-btn'>Edit Account</div>
+                        <div class='view-profile-btn'>View Profile</div>
                     </div>
                 `)
+
+                $('.view-profile-btn').click(function(){
+                    RenderProfileView()
+                })
 
                 $('.edit-btn').click(function(){
                     console.log('edit')
@@ -215,26 +220,40 @@ export default class extends AbstractView{
             }
 
             function RenderLicenseSettings(viewingID){
-                let hasLicense = true;
-                if(hasLicense){
-                    $('#account-content').html(`
-                        <div id = 'license-content'>
-                            <h3>License Settings</h3>
-                            <p id='type'>CDL</p>
-                            <p id='licnumber'>G172-749HSNU18R81BF8</p>
-                            <p id='expiration'>06-2024</p>
-                            <div class='upload-btn'>ReUpload License</div>
-                        </div>
-                    `)
-                }else{
-                    $('#account-content').html(`
-                        <div id = 'license-content'>
-                            <h3>License Settings</h3>
-                            <p>You have no license on record.</p>
-                            <p>Usability will be limited</p>
-                            <div class='upload-btn'>Upload License</div>
-                        </div>
-                    `)
+                let hasLicense = 'success'
+
+                switch(hasLicense){
+                    case 'success':
+                        $('#account-content').html(`
+                            <div id = 'license-content'>
+                                <h3 id = 'lic-s1'>License Settings</h3>
+                                <p id='lic-s2'>CDL</p>
+                                <p id='lic-s3'>G172-749HSNU18R81BF8</p>
+                                <p id='lic-s4'>06-2024</p>
+                                <div class='upload-btn'>ReUpload License</div>
+                            </div>
+                        `)
+                        break
+                    case 'missing':
+                        $('#account-content').html(`
+                            <div id = 'license-content'>
+                                <h3 id = 'lic-s1'>License Settings</h3>
+                                <p id = 'lic-s2'>You have no license on record.</p>
+                                <p id = 'lic-s3'>Usability will be limited</p>
+                                <div class='upload-btn'>Upload License</div>
+                            </div>
+                        `)
+                        break
+                    case 'uploaded':
+                        $('#account-content').html(`
+                            <div id = 'license-content'>
+                                <h3 id = 'lic-s1'>License Settings</h3>
+                                <p id = 'lic-s2'>You have a license uploaded.</p>
+                                <p id = 'lic-s3'>License is under review.</p>
+                                <div class='upload-btn'>ReUpload License</div>
+                            </div>
+                        `)
+                        break
                 }
 
                 RenderAccountSideNav(viewingID, 'license')
@@ -243,7 +262,13 @@ export default class extends AbstractView{
 
             function RenderRentalsSettings(viewingID){
                 $('#account-content').html(`
-                    <h3>Rental Settings</h3>
+                    <div id = 'account-rentals-content'>
+                        <h3>Account Rentals</h3>
+                        <div id='account-rentals-list'>
+                            <div id='current-rentals'><h6>Curret Rentals</h6></div>
+                            <div id='past-rentals'><h6>Past Rentals</h6></div>
+                        </div>
+                    </div>
                 `)
                 RenderAccountSideNav(viewingID, 'rentals')
                 sideNavFunc()
@@ -251,7 +276,13 @@ export default class extends AbstractView{
 
             function RenderLoadsSettings(viewingID){
                 $('#account-content').html(`
-                    <h3>Load Settings</h3>
+                    <div id = 'account-loads-content'>
+                        <h3>Account Loads</h3>
+                        <div id='account-loads-list'>
+                            <div id='loads-in-progress'><h6>Loads in Progress</h6></div>
+                            <div id='copmleted-loads'><h6>Completed Loads</h6></div>   
+                        </div>
+                    </div>
                 `)
                 RenderAccountSideNav(viewingID, 'loads')
                 sideNavFunc()
@@ -260,12 +291,31 @@ export default class extends AbstractView{
             function RenderProfileView(viewingID){
                 //this will view if the button is clicked from account settings, 
                 // or when token is not for userid
-                $('#carrier-account').html(`
-                    <div id = 'account-view'>
-                        <h1 id = 'profile-title'>Carrier Profile</h1>
-                        <div id = 'profile-content'></div>
-                    </div>
-                `)
+                
+                if(authenticated){
+                    $('#carrier-account').html(`
+                        <div id = 'account-view'>
+                            <h1 id = 'profile-title'>Carrier Profile</h1>
+                            <div id = 'profile-content'>
+                                <div class='account-settings-btn'>Account Settings</div>
+                            </div>
+                        </div>
+                    `)
+
+                    $('.account-settings-btn').click(function(){
+                        RenderAccountView(viewingID)
+                    })
+
+                }else{
+                    $('#carrier-account').html(`
+                        <div id = 'account-view'>
+                            <h1 id = 'profile-title'>Carrier Profile</h1>
+                            <div id = 'profile-content'></div>
+                        </div>
+                    `)
+                }
+
+                
             }
 
             function RenderAccountView(viewingID){
