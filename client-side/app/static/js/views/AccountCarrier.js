@@ -32,22 +32,27 @@ export default class extends AbstractView{
                         $('#account-side-nav').html(`
                             <div class="side-link selected" id ='settings-side-nav'>
                                 <a>
-                                    <img id="-icon" src="/static/assets/account-carrier/icons/settings-icon.svg">
+                                    <img id="-icon" src="/static/assets/account-pages/icons/settings-icon.svg">
                                 </a>
                             </div>
                             <div class="side-link" id ='license-side-nav'>
                                 <a>
-                                    <img id="-icon" src="/static/assets/account-carrier/icons/license-icon.svg">
+                                    <img id="-icon" src="/static/assets/account-pages/icons/license-icon.svg">
+                                </a>
+                            </div>
+                            <div class="side-link" id ='accounting-side-nav'>
+                                <a>
+                                    <img id="-icon" src="/static/assets/account-pages/icons/accounting-icon.svg">
                                 </a>
                             </div>
                             <div class="side-link" id ='rentals-side-nav'>
                                 <a>
-                                    <img id="-icon" src="/static/assets/account-carrier/icons/rentals-icon.svg">
+                                    <img id="-icon" src="/static/assets/account-pages/icons/rentals-icon.svg">
                                 </a>
                             </div>
                             <div class="side-link" id ='loads-side-nav'>
                                 <a>
-                                    <img id="-icon" src="/static/assets/account-carrier/icons/loads-icon.svg">
+                                    <img id="-icon" src="/static/assets/account-pages/icons/loads-icon.svg">
                                 </a>
                             </div>
                         `)
@@ -56,22 +61,27 @@ export default class extends AbstractView{
                         $('#account-side-nav').html(`
                             <div class="side-link" id = 'settings-side-nav'>
                                 <a>
-                                    <img id="-icon" src="/static/assets/account-carrier/icons/settings-icon.svg">
+                                    <img id="-icon" src="/static/assets/account-pages/icons/settings-icon.svg">
                                 </a>
                             </div>
                             <div class="side-link selected" id = 'license-side-nav'>
                                 <a>
-                                    <img id="-icon" src="/static/assets/account-carrier/icons/license-icon.svg">
+                                    <img id="-icon" src="/static/assets/account-pages/icons/license-icon.svg">
+                                </a>
+                            </div>
+                            <div class="side-link" id ='accounting-side-nav'>
+                                <a>
+                                    <img id="-icon" src="/static/assets/account-pages/icons/accounting-icon.svg">
                                 </a>
                             </div>
                             <div class="side-link" id = 'rentals-side-nav'>
                                 <a>
-                                    <img id="-icon" src="/static/assets/account-carrier/icons/rentals-icon.svg">
+                                    <img id="-icon" src="/static/assets/account-pages/icons/rentals-icon.svg">
                                 </a>
                             </div>
                             <div class="side-link" id = 'loads-side-nav'>
                                 <a>
-                                    <img id="-icon" src="/static/assets/account-carrier/icons/loads-icon.svg">
+                                    <img id="-icon" src="/static/assets/account-pages/icons/loads-icon.svg">
                                 </a>
                             </div>
                         `)
@@ -80,22 +90,27 @@ export default class extends AbstractView{
                         $('#account-side-nav').html(`
                             <div class="side-link" id = 'settings-side-nav'>
                                 <a>
-                                    <img id="-icon" src="/static/assets/account-carrier/icons/settings-icon.svg">
+                                    <img id="-icon" src="/static/assets/account-pages/icons/settings-icon.svg">
                                 </a>
                             </div>
                             <div class="side-link" id = 'license-side-nav'>
                                 <a>
-                                    <img id="-icon" src="/static/assets/account-carrier/icons/license-icon.svg">
+                                    <img id="-icon" src="/static/assets/account-pages/icons/license-icon.svg">
+                                </a>
+                            </div>
+                            <div class="side-link" id ='accounting-side-nav'>
+                                <a>
+                                    <img id="-icon" src="/static/assets/account-pages/icons/accounting-icon.svg">
                                 </a>
                             </div>
                             <div class="side-link selected" id = 'rentals-side-nav'>
                                 <a>
-                                    <img id="-icon" src="/static/assets/account-carrier/icons/rentals-icon.svg">
+                                    <img id="-icon" src="/static/assets/account-pages/icons/rentals-icon.svg">
                                 </a>
                             </div>
                             <div class="side-link" id = 'loads-side-nav'>
                                 <a>
-                                    <img id="-icon" src="/static/assets/account-carrier/icons/loads-icon.svg">
+                                    <img id="-icon" src="/static/assets/account-pages/icons/loads-icon.svg">
                                 </a>
                             </div>
                         `)
@@ -104,22 +119,56 @@ export default class extends AbstractView{
                         $('#account-side-nav').html(`
                             <div class="side-link" id ='settings-side-nav'>
                                 <a>
-                                    <img id="-icon" src="/static/assets/account-carrier/icons/settings-icon.svg">
+                                    <img id="-icon" src="/static/assets/account-pages/icons/settings-icon.svg">
                                 </a>
                             </div>
                             <div class="side-link" id ='license-side-nav'>
                                 <a>
-                                    <img id="-icon" src="/static/assets/account-carrier/icons/license-icon.svg">
+                                    <img id="-icon" src="/static/assets/account-pages/icons/license-icon.svg">
+                                </a>
+                            </div>
+                            <div class="side-link" id ='accounting-side-nav'>
+                                <a>
+                                    <img id="-icon" src="/static/assets/account-pages/icons/accounting-icon.svg">
                                 </a>
                             </div>
                             <div class="side-link" id ='rentals-side-nav'>
                                 <a>
-                                    <img id="-icon" src="/static/assets/account-carrier/icons/rentals-icon.svg">
+                                    <img id="-icon" src="/static/assets/account-pages/icons/rentals-icon.svg">
                                 </a>
                             </div>
                             <div class="side-link selected" id ='loads-side-nav'>
                                 <a>
-                                    <img id="-icon" src="/static/assets/account-carrier/icons/loads-icon.svg">
+                                    <img id="-icon" src="/static/assets/account-pages/icons/loads-icon.svg">
+                                </a>
+                            </div>
+                        `)
+                        break
+                    case 'accounting':
+                        $('#account-side-nav').html(`
+                            <div class="side-link" id ='settings-side-nav'>
+                                <a>
+                                    <img id="-icon" src="/static/assets/account-pages/icons/settings-icon.svg">
+                                </a>
+                            </div>
+                            <div class="side-link" id ='license-side-nav'>
+                                <a>
+                                    <img id="-icon" src="/static/assets/account-pages/icons/license-icon.svg">
+                                </a>
+                            </div>
+                            <div class="side-link selected" id ='accounting-side-nav'>
+                                <a>
+                                    <img id="-icon" src="/static/assets/account-pages/icons/accounting-icon.svg">
+                                </a>
+                            </div>
+                            <div class="side-link" id ='rentals-side-nav'>
+                                <a>
+                                    <img id="-icon" src="/static/assets/account-pages/icons/rentals-icon.svg">
+                                </a>
+                            </div>
+                            <div class="side-link" id ='loads-side-nav'>
+                                <a>
+                                    <img id="-icon" src="/static/assets/account-pages/icons/loads-icon.svg">
                                 </a>
                             </div>
                         `)
@@ -131,22 +180,22 @@ export default class extends AbstractView{
             
             function sideNavFunc() {
                 $('#settings-side-nav').click(function(){
-                    console.log('y')
                     RenderAccountSettings(viewingID)
                 })
 
                 $('#license-side-nav').click(function(){
-                    console.log('y')
                     RenderLicenseSettings(viewingID)
                 })
 
+                $('#accounting-side-nav').click(function(){
+                    RenderAccountingSettings(viewingID)
+                })
+
                 $('#rentals-side-nav').click(function(){
-                    console.log('y')
                     RenderRentalsSettings(viewingID)
                 })
 
                 $('#loads-side-nav').click(function(){
-                    console.log('y')
                     RenderLoadsSettings(viewingID)
                 })
             }
@@ -288,6 +337,17 @@ export default class extends AbstractView{
                 sideNavFunc()
             }
 
+            function RenderAccountingSettings(viewingID){
+                $('#account-content').html(`
+                    <div id = 'account-accounting-content'>
+                        <h3>Accounting</h3>
+                    </div>
+                `)
+                RenderAccountSideNav(viewingID, 'accounting')
+                sideNavFunc()
+            }
+            
+
             function RenderProfileView(viewingID){
                 //this will view if the button is clicked from account settings, 
                 // or when token is not for userid
@@ -344,7 +404,6 @@ export default class extends AbstractView{
     async getHtml() {
         return `
             <div id = 'carrier-account'>
-               
             </div>
         `;
     }
