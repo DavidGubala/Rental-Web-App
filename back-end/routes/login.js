@@ -28,7 +28,7 @@ router.post('/register' , async (req,res)=>{
 
 // LOGIN Action
 router.post('/', async (req, res)=>{
-    console.log(req.body)
+    //console.log(req.body)
     let user = ''
     switch(req.body.loginType){
         case 'shipper':
@@ -45,10 +45,10 @@ router.post('/', async (req, res)=>{
     const login = await Login.findOne({uid: user._id});
     console.log(login)
     
-    console.log(await bcrypt.compare(req.body.pass, login.pass))
+    //console.log(await bcrypt.compare(req.body.pass, login.pass))
 
     if(await bcrypt.compare(req.body.pass, login.pass)) {
-        const token = jwt.sign({id: login._id, uid: login.uid}, process.env.ACCESS_TOKEN_SECRET)
+        const token = jwt.sign({userType: req.body.loginType, uid: login.uid}, process.env.ACCESS_TOKEN_SECRET)
         return res.json({
             status: 'ok',
             data: token
@@ -56,6 +56,24 @@ router.post('/', async (req, res)=>{
     }
     return res.json({status: 'error logging in'})
 });
+
+// LOGIN Action
+router.post('/auth', async (req, res)=>{
+    console.log(req.body)
+    if(req.body.token == '0'){
+        return res.json({
+            status: 'notauthenticated'
+        })
+    }else{
+        jwt.verify(req.body.token, process.env.ACCESS_TOKEN_SECRET, (err, authData) =>{
+            return res.json({
+                utype: authData.userType,
+                uid : authData.uid
+            })
+        })
+    }
+});
+
 /*
 // Update login
 router.put('/', async (req, res)=>{

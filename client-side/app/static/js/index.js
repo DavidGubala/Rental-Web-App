@@ -13,8 +13,6 @@ import Login from "./views/Login.js";
 import Register from "./views/Register.js";
 import Construction from "./views/ConstructionView.js";
 
-localStorage.setItem('token', 0)
-
 $(function() {
     const pathToRegex = path => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
 
@@ -74,6 +72,11 @@ $(function() {
 		$('.app>#app').html(await view.getHtml());
 		$('.app>header>#navbar').html(await view.getNav(localStorage.getItem('token')));
 		$('.app>#footer').html(await view.getFooter());
+        
+        if(!localStorage.getItem('token')){
+            localStorage.setItem('token', 0)
+        }
+        
         await view.getJS(localStorage.getItem('token'));
 
         //document.querySelector('.app>#app').innerHTML = await view.getHtml();

@@ -66,7 +66,7 @@ export default class extends AbstractView{
                 data: JSON.stringify(newUser),
                 'success': function(res){
                     console.log(res)
-                    newUserId = res._id
+                    let newUserId = res._id
                     newLogin = {
                         'uid': newUserId,
                         'pass': $('#pass').val()
@@ -102,6 +102,7 @@ export default class extends AbstractView{
                                 'success': function(res){
                                     if(res.status == 'ok'){
                                         localStorage.setItem('token', res.data)
+                                        let typelink = ''
                                         switch(ut){
                                             case 'shipper':
                                                 typelink = '/shipper/'

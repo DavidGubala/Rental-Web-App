@@ -419,9 +419,6 @@
     row-gap: 16px;
 }
 
-
-
-
 #account-accounting-content{
     display: grid;
     grid-template-rows: 35px 30px 30px 30px 30px;
@@ -436,4 +433,22 @@
     grid-column-end: 3;
     grid-row-start: 1;
     grid-row-end: 2;
+}
+
+.rental-form>.save-rental-btn{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 16;
+    grid-row-end: 17;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    background-color: #FFB700;
+    border-radius: 6px;
+    transition: all 0.61s ease 0s;
+}
+
+.rental-form>.save-rental-btn:hover{
+    background-color: #ffe39d;
+    cursor: pointer;
 }

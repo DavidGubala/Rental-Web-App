@@ -59,6 +59,10 @@ export default class{
                 <a href="/" class="nav__link" data-link id = "login">Account<img id="login-icon" src="/static/assets/nav-bar/icons/account-icon.svg"></a>
                 <a href="/" class="nav__link btn" data-link id = "signup">Sign Out</a>
                 `
+                // Add button functionality here
+                // Signout - set token to 0, redirect to home
+
+                // Account - redirect to uid
             }else{
                 content =  `
                 <a href="/" class="nav__link" data-link id = "logo"><img class="logo" src="/static/assets/nav-bar/logo.svg" alt="site logo"></a>
@@ -78,7 +82,7 @@ export default class{
                 <a href="/register" class="nav__link btn" data-link id = "signup">Sign Up</a>
                 `
                 // TODO:
-                // set token to 0 in the memory, then call get nav again which will render the corrent navbar
+                // set token to 0 in the memory, then call get nav again which will render the correct navbar
             }
         }
 

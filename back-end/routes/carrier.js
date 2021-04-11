@@ -32,9 +32,9 @@ router.post('/' , async (req,res)=>{
 router.get('/:uid', async (req, res)=>{
     try{
         const carrier = await Carrier.findById(req.params.uid);
-        res.json(carrier);
+        res.json({status: 'exist', carrier});
     }catch(err){
-        res.json({message: err});
+        res.json({status: 'notexist'});
     }
 });
 

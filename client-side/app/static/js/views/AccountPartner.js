@@ -276,15 +276,18 @@ export default class extends AbstractView{
                                     <label for="truckType">Truck Type:</label>
                                     <input type="text" id="truckType" name="truckType" placeholder="">
     
-                                    <label for="bodyLength"> Trailer Length:</label>
-                                    <input type="text" id="bodyLength" name="bodyLength" placeholder="">
+                                    <label for="vin">Vin:</label>
+                                    <input type="text" id="vin" name="vin" placeholder="">
     
-                                    <label for="manuf">Manufacturer:</label>
-                                    <input type="text" id="manuf" name="manuf" placeholder="">
+                                    <label for="make">Make:</label>
+                                    <input type="text" id="make" name="make" placeholder="">
     
-                                    <label for="year">Trailer Year:</label>
+                                    <label for="model">Model:</label>
+                                    <input type="text" id="model" name="model" placeholder="">
+                                    
+                                    <label for="year">Yaer:</label>
                                     <input type="text" id="year" name="year" placeholder="">
-    
+
                                     <label for="odometer">Odometer:</label>
                                     <input type="text" id="odometer" name="odometer" placeholder="">
     
