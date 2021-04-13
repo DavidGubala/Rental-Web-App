@@ -8,6 +8,8 @@ export default class extends AbstractView{
     async getJS(){
         let viewingID = this.params.id
         var user = {}
+        var userAddress= {}
+        var authenticated = false
         //Valid User Check
         //make sure this id actually exists
         // ajax call to find carrier with id
@@ -30,8 +32,79 @@ export default class extends AbstractView{
                     user = res.carrier
                     console.log(user)
 
-                    // Here we supposed to authenticate
-                    RenderAccountView(user)
+                    var token = localStorage.getItem('token')
+                    let authReq = {
+                        token : token
+                    }
+                    $.ajax({
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json',
+                            "Access-Control-Allow-Origin": "http://localhost:5040"
+                        },
+                        type: 'post',
+                        url : "http://localhost:5050/login/auth",
+                        data: JSON.stringify(authReq),
+                        'success': function(res){
+                            if(res.utype== undefined){
+                                var reftoken = localStorage.getItem('reftoken')
+                                authReq = {
+                                    reftoken: reftoken
+                                }
+                                $.ajax({
+                                    headers: {
+                                        'Accept': 'application/json',
+                                        'Content-Type': 'application/json',
+                                        "Access-Control-Allow-Origin": "http://localhost:5040"
+                                    },
+                                    type: 'post',
+                                    url : "http://localhost:5050/login/token",
+                                    data: JSON.stringify(authReq),
+                                    'success': function(res){
+                                        if(res.status == 'ok'){
+                                            localStorage.setItem('token', res.token)
+                                            authReq = {
+                                                token : res.token
+                                            }
+                                            $.ajax({
+                                                headers: {
+                                                    'Accept': 'application/json',
+                                                    'Content-Type': 'application/json',
+                                                    "Access-Control-Allow-Origin": "http://localhost:5040"
+                                                },
+                                                type: 'post',
+                                                url : "http://localhost:5050/login/auth",
+                                                data: JSON.stringify(authReq),
+                                                'success': function(res){
+                                                    if(res.status = 'ok'){
+                                                        if(res.uid == viewingID){
+                                                            RenderAccountView(user)
+                                                            authenticated = true
+                                                        }else{
+                                                            RenderProfileView(user)
+                                                        }
+                                                    }
+                                                    if(res.status == '403'){
+                                                        RenderProfileView(user)
+                                                    }
+                                                }
+                                            })
+                                        }else if(res.status == '403'){
+                                            RenderProfileView(user)
+                                        }
+                                        
+                                    }
+                                })
+                            }else{
+                                if(res.uid == viewingID){
+                                    RenderAccountView(user)
+                                    authenticated = true
+                                }else{
+                                    RenderProfileView(user)
+                                }
+                            }
+                        }
+                    })
                 }
             }
         })
@@ -189,46 +262,77 @@ export default class extends AbstractView{
             }
         }
         
-        function sideNavFunc(){
+        function sideNavFunc(user){
             $('#settings-side-nav').click(function(){
-                RenderAccountSettings()
+                RenderAccountSettings(user)
             })
 
             $('#license-side-nav').click(function(){
-                RenderLicenseSettings()
+                RenderLicenseSettings(user)
             })
 
             $('#accounting-side-nav').click(function(){
-                RenderAccountingSettings()
+                RenderAccountingSettings(user)
             })
 
             $('#rentals-side-nav').click(function(){
-                RenderRentalsSettings()
+                RenderRentalsSettings(user)
             })
 
             $('#loads-side-nav').click(function(){
-                RenderLoadsSettings()
+                RenderLoadsSettings(user)
             })
         }
 
         function RenderAccountSettings(user){
-            //TODO FILL OUT WITH USER
-            //html skeleton Fill out with the user
             $('#account-content').html(`
                 <div id = 'settings-content'>
                     <h3>Account Settings</h3>
-                    <p id='name'>Dummy User</p>
-                    <p id='email'>spam@testingemail.com</p>
-                    <p id='phone'>555-555-5555</p>
-                    <p id='street'>1234 W. Loyola Ln.</p>
-                    <p id='csz'>Chicago, IL 60656</p>
+                    <p id='name'>` + user.fname + ` ` + user.lname + `</p>
+                    <p id='email'>` +  user.email + `</p>
+                    <p id='phone'></p>
+                    <p id='street'></p>
+                    <p id='csz'></p>
                     <div class='edit-btn'>Edit Account</div>
                     <div class='view-profile-btn'>View Profile</div>
                 </div>
             `)
 
+            if(user.phoneNumber == "none"){
+                $('#phone').html(`No phone number on file`)
+            }else{
+                $('#phone').html(user.phoneNumber)
+            }
+
+            if(user.addressId == "none"){
+                $('#street').html(`No address on file`)
+            }else{
+                //ajax call to get address
+                $.ajax({
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                        "Access-Control-Allow-Origin": "http://localhost:5040"
+                    },
+                    type: 'GET',
+                    url : "http://localhost:5050/carrier/" + viewingID + "/address",
+                    'success': function(res){
+                        if(res.status == 'notexist'){
+                            $('#street').html(`No address on file`)
+                        }else if (res.status == 'exist'){
+                            userAddress = res.carrierAddress
+                            console.log(userAddress)
+                            $('#street').html(userAddress.streetAddress)
+                            $('#csz').html(userAddress.city + ` ` + userAddress.state + ' ' + userAddress.postalCode)
+                        }
+                    }
+                })
+            }
+
+
+
             $('.view-profile-btn').click(function(){
-                RenderProfileView()
+                RenderProfileView(user)
             })
 
             $('.edit-btn').click(function(){
@@ -238,50 +342,73 @@ export default class extends AbstractView{
                         <h3>Account Settings</h3>
                         <form class="account-form">
                             <p id = 'fs1'>Contact Info.</p>
-                            <input type="text" id="fname" name="firstname" placeholder="Dummy">
-                            <input type="text" id="lname" name="lastname" placeholder="User">
+                            <input type="text" id="fname" name="firstname" placeholder="`+ user.fname +`">
+                            <input type="text" id="lname" name="lastname" placeholder="`+ user.lname +`">
 
-                            <input type="text" id="email" name="email" placeholder="spam@testingemail.com">
-                            <input type="text" id="phone" name="phone" placeholder="555-555-5555">
+                            <input type="text" id="email" name="email" placeholder="`+ user.email +`">
+                            <input type="text" id="phone" name="phone" placeholder="`+ user.phoneNumber +`">
                             
                             <p id = 'fs2'>Password</p>
                             <input type="text" id="pass" name="pass" placeholder="Password..">
                             <input type="text" id="cpass" name="conf-pass" placeholder="Confirm Password..">
                             
                             <p id = 'fs3'>Address</p>
-                            <input type="text" id="street" name="street" placeholder="1234 W. Loyola Ln.">
-                            <input type="text" id="city" name="city" placeholder="Chicago">
-                            <input type="text" id="state" name="state" placeholder="Illinois">
-                            <input type="text" id="country" name="state" placeholder="United States">
-                            <input type="text" id="postalcode" name="postalcode" placeholder="60656">
+                            <input type="text" id="street" name="street" placeholder="`+ userAddress.streetAddress +`">
+                            <input type="text" id="city" name="city" placeholder="`+ userAddress.city +`">
+                            <input type="text" id="state" name="state" placeholder="`+ userAddress.state +`">
+                            <input type="text" id="country" name="state" placeholder="`+ userAddress.country +`">
+                            <input type="text" id="postalcode" name="postalcode" placeholder="`+ userAddress.postalCode +`">
 
                             <div class='save-edit-btn'>Save Edit</div>
                             <div class='cancel-edit-btn'>Cancel Edit</div>
                         </form>
                     </div>
                 `)
-                
+
+                if(user.phoneNumber == "none"){
+                    $('#phone').attr('placeholder','Phone Number')
+                }
+
+                if(user.addressId == "none"){
+                    $('#street').attr('placeholder','Street Address')
+                    $('#city').attr('placeholder','City')
+                    $('#state').attr('placeholder','State')
+                    $('#country').attr('placeholder','Country')
+                    $('#postalcode').attr('placeholder','Postal Code')
+                }
+
                 $('.save-edit-btn').click(function(){
                     let editsPresent = false
                     //If edits are made, then save them
                     if(editsPresent){
                         //ajax call to save the edits
                     }
-                    RenderAccountSettings()
+                    RenderAccountSettings(user)
                 })
 
                 $('.cancel-edit-btn').click(function(){
-                    RenderAccountSettings()
+                    RenderAccountSettings(user)
                 })
 
             })
 
             RenderAccountSideNav('settings')
-            sideNavFunc()
+            sideNavFunc(user)
         }
 
         function RenderLicenseSettings(user){
-            let hasLicense = 'success'
+            
+            if(user.licenseId == "none"){
+                let hasLicense = 'missing'
+            }else{
+                //ajax
+                let uploaded = 'true'
+                if(uploaded == true){
+                    
+                }else{
+
+                }
+            }
 
             switch(hasLicense){
                 case 'success':
@@ -318,7 +445,7 @@ export default class extends AbstractView{
             }
 
             RenderAccountSideNav('license')
-            sideNavFunc()
+            sideNavFunc(user)
         }
 
         function RenderRentalsSettings(user){
@@ -332,7 +459,7 @@ export default class extends AbstractView{
                 </div>
             `)
             RenderAccountSideNav('rentals')
-            sideNavFunc()
+            sideNavFunc(user)
         }
 
         function RenderLoadsSettings(user){
@@ -346,7 +473,7 @@ export default class extends AbstractView{
                 </div>
             `)
             RenderAccountSideNav('loads')
-            sideNavFunc()
+            sideNavFunc(user)
         }
 
         function RenderAccountingSettings(user){
@@ -356,14 +483,13 @@ export default class extends AbstractView{
                 </div>
             `)
             RenderAccountSideNav('accounting')
-            sideNavFunc()
+            sideNavFunc(user)
         }
         
 
         function RenderProfileView(user){
             //this will view if the button is clicked from account settings, 
             // or when token is not for userid
-            
             if(authenticated){
                 $('#carrier-account').html(`
                     <div id = 'account-view'>
@@ -375,7 +501,7 @@ export default class extends AbstractView{
                 `)
 
                 $('.account-settings-btn').click(function(){
-                    RenderAccountView(viewingID)
+                    RenderAccountView(user)
                 })
 
             }else{

@@ -76,9 +76,9 @@ router.get('/:uid/address', async (req, res)=>{
     try{
         const carrier = await Carrier.findById(req.params.uid);
         const carrierAddress = await Address.findById(carrier.addressId);
-        res.json(carrierAddress);
+        res.json({status: 'exist', carrierAddress});
     }catch(err){
-        res.json({message: err});
+        res.json({status: 'notexist'});
     }
 });
 

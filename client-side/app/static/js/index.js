@@ -24,7 +24,7 @@ const getParams = match => {
 
 };
 
-const NavigateTo = url => {
+export const NavigateTo = url => {
     history.pushState(null, null, url);
     router();
 };
@@ -102,7 +102,11 @@ document.body.addEventListener("click", e => {
         NavigateTo("/shipper");
     }
     if (e.target.matches(".su")){
-        NavigateTo("/register");
+        if(localStorage.getItem('token')==undefined){
+            NavigateTo("/register");
+        }else{
+            e.preventDefault();
+        }
     }
     if (e.target.matches(".gbh")){
         NavigateTo("/");

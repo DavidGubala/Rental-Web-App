@@ -146,7 +146,6 @@ export default class extends AbstractView{
                         Already have an Account?  
                         <a href="/login" class="nav__link" data-link id = "login">Login Here</a>
                     </p>
-                    
                 </form>
                 <div class="graphic">
                 </div>

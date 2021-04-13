@@ -44,9 +44,9 @@ router.post('/', async (req, res)=>{
     }
     //console.log(user)
     const login = await Login.findOne({uid: user._id});
-    //console.log(login)
+    console.log(login)
     
-    //console.log(await bcrypt.compare(req.body.pass, login.pass))
+    console.log(await bcrypt.compare(req.body.pass, login.pass))
 
     if(await bcrypt.compare(req.body.pass, login.pass)) {
         const token = jwt.sign({userType: req.body.loginType, uid: login.uid}, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '15s'})
@@ -61,7 +61,8 @@ router.post('/', async (req, res)=>{
             return res.json({
                 status: 'ok',
                 token: token,
-                reftoken: reftok
+                reftoken: reftok,
+                uid: refresh.uid
             })
         }catch(err){
             res.json({message: err});
