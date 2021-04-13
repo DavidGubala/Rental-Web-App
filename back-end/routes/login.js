@@ -2,6 +2,7 @@ const express  = require('express');
 const router = express.Router();
 const bcrypt =  require('bcrypt');
 const Login = require('../models/Login');
+const Token = require('../models/Token');
 const Shipper = require('../models/Shipper');
 const Carrier = require('../models/Carrier');
 const Partner = require('../models/Partner');
@@ -41,37 +42,75 @@ router.post('/', async (req, res)=>{
             user = await Partner.findOne({email:  req.body.email}).lean();
             break;
     }
-    console.log(user)
+    //console.log(user)
     const login = await Login.findOne({uid: user._id});
-    console.log(login)
+    //console.log(login)
     
     //console.log(await bcrypt.compare(req.body.pass, login.pass))
 
     if(await bcrypt.compare(req.body.pass, login.pass)) {
-        const token = jwt.sign({userType: req.body.loginType, uid: login.uid}, process.env.ACCESS_TOKEN_SECRET)
-        return res.json({
-            status: 'ok',
-            data: token
+        const token = jwt.sign({userType: req.body.loginType, uid: login.uid}, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '15s'})
+        const reftok = jwt.sign({userType: req.body.loginType, uid: login.uid}, process.env.REFRESH_TOKEN_SECRET)
+        const refresh = new Token({
+            uid: login.uid,
+            userType: req.body.loginType,
+            reftok: reftok
         })
+        try{
+            const savedRefresh = await refresh.save();
+            return res.json({
+                status: 'ok',
+                token: token,
+                reftoken: reftok
+            })
+        }catch(err){
+            res.json({message: err});
+        }
     }
-    return res.json({status: 'error logging in'})
+    return res.sendStatus(403)
 });
 
-// LOGIN Action
+// AUTH Action
 router.post('/auth', async (req, res)=>{
-    console.log(req.body)
-    if(req.body.token == '0'){
+    //console.log(req.body)
+    if(req.body.token == '0' || req.body.token == 'undefined'){
         return res.json({
             status: 'notauthenticated'
         })
     }else{
         jwt.verify(req.body.token, process.env.ACCESS_TOKEN_SECRET, (err, authData) =>{
+            if(err) return res.json({status : '403'})
+            //console.log(authData)
             return res.json({
+                status : 'ok',
                 utype: authData.userType,
                 uid : authData.uid
             })
         })
     }
+});
+
+// Refresh Token Action
+// this runs when above sends 403
+router.post('/token', async (req, res)=>{
+    //console.log(req.body)
+    const token = await Token.findOne({reftok: req.body.reftoken});
+    if(token){
+        const newAccess = jwt.sign({userType: token.userType, uid: token.uid}, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '15s'})
+        return res.json({
+            status : 'ok',
+            token: newAccess
+        })
+    }else{
+        return res.sendStatus(403)
+    }
+});
+
+// Logout Action, deletes the refresh token
+router.delete('/token', async (req, res)=>{
+    console.log(req.body)
+    const token = await Token.deleteOne({reftok: req.body.reftok});
+    return res.sendStatus(204)
 });
 
 /*

@@ -96,7 +96,7 @@ nav>#services{
     cursor: pointer;
 }
 
-nav>#services>a>#service-icon, nav>a>#login-icon {
+nav>#services>a>#service-icon, nav>a>#login-icon, nav>a>#account-icon {
     padding-left: 15px;
 }
 

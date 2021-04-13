@@ -5,11 +5,9 @@ export default class extends AbstractView{
         super(params);
     }
     
-    async getJS(token){
+    async getJS(){
         let viewingID = this.params.id
-        let authenticated = false
         var user = {}
-        console.log(token)
         //Valid User Check
         //make sure this id actually exists
         // ajax call to find carrier with id
@@ -30,33 +28,13 @@ export default class extends AbstractView{
                     `)
                 }else if (res.status == 'exist'){
                     user = res.carrier
-                    // then it is verified
-                    //now we need to authenticate token with id
-                    let authReq = {
-                        token : token
-                    }
-                    $.ajax({
-                        headers: {
-                            'Accept': 'application/json',
-                            'Content-Type': 'application/json',
-                            "Access-Control-Allow-Origin": "http://localhost:5040"
-                        },
-                        type: 'post',
-                        url : "http://localhost:5050/login/auth",
-                        data: JSON.stringify(authReq),
-                        'success': function(res){
-                            if(res.uid == viewingID){
-                                authenticated = true
-                                RenderAccountView(user)
-                            }else{
-                                RenderProfileView(user)
-                            }
-                        }
-                    })
+                    console.log(user)
+
+                    // Here we supposed to authenticate
+                    RenderAccountView(user)
                 }
             }
         })
-
     
         //Methods
         function RenderAccountSideNav(selectedSideLink){
@@ -209,33 +187,32 @@ export default class extends AbstractView{
                     `)
                     break
             }
-
-
         }
         
-        function sideNavFunc() {
+        function sideNavFunc(){
             $('#settings-side-nav').click(function(){
-                RenderAccountSettings(viewingID)
+                RenderAccountSettings()
             })
 
             $('#license-side-nav').click(function(){
-                RenderLicenseSettings(viewingID)
+                RenderLicenseSettings()
             })
 
             $('#accounting-side-nav').click(function(){
-                RenderAccountingSettings(viewingID)
+                RenderAccountingSettings()
             })
 
             $('#rentals-side-nav').click(function(){
-                RenderRentalsSettings(viewingID)
+                RenderRentalsSettings()
             })
 
             $('#loads-side-nav').click(function(){
-                RenderLoadsSettings(viewingID)
+                RenderLoadsSettings()
             })
         }
 
         function RenderAccountSettings(user){
+            //TODO FILL OUT WITH USER
             //html skeleton Fill out with the user
             $('#account-content').html(`
                 <div id = 'settings-content'>
@@ -299,7 +276,7 @@ export default class extends AbstractView{
 
             })
 
-            RenderAccountSideNav(viewingID, 'settings')
+            RenderAccountSideNav('settings')
             sideNavFunc()
         }
 
@@ -340,7 +317,7 @@ export default class extends AbstractView{
                     break
             }
 
-            RenderAccountSideNav(viewingID, 'license')
+            RenderAccountSideNav('license')
             sideNavFunc()
         }
 
@@ -354,7 +331,7 @@ export default class extends AbstractView{
                     </div>
                 </div>
             `)
-            RenderAccountSideNav(viewingID, 'rentals')
+            RenderAccountSideNav('rentals')
             sideNavFunc()
         }
 
@@ -368,7 +345,7 @@ export default class extends AbstractView{
                     </div>
                 </div>
             `)
-            RenderAccountSideNav(viewingID, 'loads')
+            RenderAccountSideNav('loads')
             sideNavFunc()
         }
 
@@ -378,7 +355,7 @@ export default class extends AbstractView{
                     <h3>Accounting</h3>
                 </div>
             `)
-            RenderAccountSideNav(viewingID, 'accounting')
+            RenderAccountSideNav('accounting')
             sideNavFunc()
         }
         
@@ -422,7 +399,7 @@ export default class extends AbstractView{
                     <div id = 'account-content'></div>
                 </div>
             `)
-            RenderAccountSettings(viewingID)
+            RenderAccountSettings(user)
             
         
         }

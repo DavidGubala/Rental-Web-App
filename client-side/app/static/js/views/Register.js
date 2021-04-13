@@ -101,7 +101,8 @@ export default class extends AbstractView{
                                 data: JSON.stringify(login),
                                 'success': function(res){
                                     if(res.status == 'ok'){
-                                        localStorage.setItem('token', res.data)
+                                        localStorage.setItem('token', res.token)
+                                        localStorage.setItem('reftoken', res.reftoken)
                                         let typelink = ''
                                         switch(ut){
                                             case 'shipper':
