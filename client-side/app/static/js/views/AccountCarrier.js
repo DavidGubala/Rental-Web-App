@@ -397,7 +397,6 @@ export default class extends AbstractView{
         }
 
         function RenderLicenseSettings(user){
-            
             if(user.licenseId == "none"){
                 let hasLicense = 'missing'
             }else{

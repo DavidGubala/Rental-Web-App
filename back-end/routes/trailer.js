@@ -8,9 +8,10 @@ router.post('/' , async (req,res)=>{
     const trailer = new Trailer(req.body);
     try{
         const savedTrailer = await trailer.save();
+        console.log(savedTrailer);
         res.json(savedTrailer);
     }catch(err){
-        res.json({message: err});
+        res.json({message: 'failed to save rental'});
     }
 });
 

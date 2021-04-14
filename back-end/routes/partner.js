@@ -31,9 +31,9 @@ router.post('/' , async (req,res)=>{
 router.get('/:uid', async (req, res)=>{
     try{
         const partner = await Partner.findById(req.params.uid);
-        res.json(partner);
+        res.json({status: 'exist', partner});
     }catch(err){
-        res.json({message: err});
+        res.json({status: 'notexist'});
     }
 });
 

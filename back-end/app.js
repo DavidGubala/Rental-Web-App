@@ -31,7 +31,6 @@ app.use('/order', orderRoutes);
 app.use('/load', loadRoutes);
 app.use('/login', loginRoutes);
 
-
 mongoose.connect(
     process.env.DB_CONNECTION,
     {   useNewUrlParser: true, 
