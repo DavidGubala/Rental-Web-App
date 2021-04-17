@@ -27,7 +27,7 @@ const TruckSchema = mongoose.Schema({
     },
     locationId : {
         type: String,
-        required: true
+        //required: true
     },
     odometer: String,
     ownerId:{

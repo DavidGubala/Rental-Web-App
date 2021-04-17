@@ -111,7 +111,10 @@ router.get('/:uid/inventory', async (req, res)=>{
     try{
         const trucks = await Truck.find({ownerId: req.params.uid});
         const trailers = await Trailer.find({ownerId: req.params.uid});
-        const inv = trucks + trailers;
+        const inv = {
+            trucks, 
+            trailers
+        };
         res.json(inv);
     }catch(err){
         res.json({message: err});

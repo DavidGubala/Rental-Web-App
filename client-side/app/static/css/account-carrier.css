@@ -389,6 +389,58 @@
     background-color: #f2f5ff;
 }
 
+.lor{
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: auto;
+    row-gap: 16px;
+    margin: 10px;
+}
+
+.lor>#rental-list-item{
+    display: grid;
+    grid-template-rows: repeat(3, [row] 32px) ;
+    grid-template-columns: repeat(4, [col] 256px);
+    transition: all 0.61s ease 0s;
+    border-radius: 6px;
+    background-color: #f2f5ff;
+    border-style: dashed;
+    border-width: 1.618px;
+}
+
+.lor>#rental-list-item:hover{
+    background-color: #e0e9ff;
+    cursor: pointer;
+}
+
+.lor>#rental-list-item>#rental-slideshow{
+    grid-row-start: 1;
+    grid-row-end: 4;
+    background-color: #ced9fc;
+    border-radius: 6px;
+    margin-right: 17px;
+}
+
+.lor>#rental-list-item>.edit-rental-btn{
+    grid-row-start: 1;
+    grid-row-end: 4;
+    grid-column-start: 4;
+    grid-column-end: 5;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    background-color: #6f90f3;
+    border-style: dashed;
+    border-width: 0.61px;
+    border-radius: 6px;
+    transition: all 0.61s ease 0s;
+}
+
+.lor>#rental-list-item>.edit-rental-btn:hover{
+    background-color: #ffe39d;
+    cursor: pointer;
+}
+
 #account-rentals-content>.add-rental-btn{
     grid-column-start: 4;
     grid-column-end: 6;
@@ -452,3 +504,4 @@
     background-color: #ffe39d;
     cursor: pointer;
 }
+

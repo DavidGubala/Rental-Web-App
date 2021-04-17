@@ -9,19 +9,9 @@ router.post('/' , async (req,res)=>{
     try{
         const savedTrailer = await trailer.save();
         console.log(savedTrailer);
-        res.json(savedTrailer);
+        //res.json(savedTrailer);
     }catch(err){
         res.json({message: 'failed to save rental'});
-    }
-});
-
-// Read trailer
-router.get('/:tid', async (req, res)=>{
-    try{
-        const trailer = await Trailer.findById(req.params.tid);
-        res.json(trailer);
-    }catch(err){
-        res.json({message: err});
     }
 });
 

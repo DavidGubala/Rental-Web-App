@@ -307,19 +307,84 @@ export default class extends AbstractView{
                 <div id = 'account-rentals-content'>
                     <h3>Account Rentals</h3>
                     <div id='account-rentals-list'>
-                        <div id='current-rented'>
-                            <h6>Currently Rented</h6>
+                        <h6>Currently Listed</h6>
+                        <div id='current-listed' class='lor'>
                         </div>
-                        <div id='current-listed'>
-                            <h6>Currently Listed</h6>
+                        <h6>Currently Rented</h6>
+                        <div id='current-rented' class='lor'>
                         </div>
-                        <div id='past-rentals'>
-                            <h6>Past Rentals</h6>
+                        <h6>Past Rentals</h6>
+                        <div id='past-rentals' class='lor'>
                         </div>
                     </div>
                     <div class='add-rental-btn'>Add New Rental</div>
                 </div>
             `)
+            $.ajax({
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    "Access-Control-Allow-Origin": "http://localhost:5040"
+                },
+                type: 'GET',
+                url : 'http://localhost:5050/partner/' + user._id + '/inventory',
+                'success': function(res){
+                    console.log(res)
+                    let currentRentals = ``
+                    let rentedRentals = ``
+                    let pastRentals = ``
+                    // fill out rental
+                    $.each(res ,function(rentalType) {
+                        $.each(res[rentalType] ,function(rental) {
+                            //console.log(res[rentalType][rental])
+                            let rentalContent = ''
+                            
+                            console.log(rentalType)
+                            switch(rentalType){
+                                case 'trucks':
+                                    rentalContent = `
+                                    <div id = 'rental-list-item'>
+                                        <div id = rental-slideshow><p>` + rentalType + ` photo</p></div>
+                                        <p>Trailer Type: ` + res[rentalType][rental]['truckType'] + `</p>
+                                        <p>Make : ` + res[rentalType][rental]['make'] + `</p>
+                                        <p>Model: ` + res[rentalType][rental]['model'] + `</p>
+                                        <p>Year: ` + res[rentalType][rental]['year'] + `</p>
+                                        <p>Odometer: ` + res[rentalType][rental]['odometer'] + `</p>
+                                        <p>Price: ` + res[rentalType][rental]['price'] + `</p>
+                                        <div class='edit-rental-btn'>Edit Rental</div>
+                                    </div>
+                                    `
+                                    break
+                                case 'trailers':
+                                    rentalContent = `
+                                    <div id = 'rental-list-item'>
+                                        <div id = rental-slideshow><p>` + rentalType + ` photo</p></div>
+                                        <p>Truck Type: ` + res[rentalType][rental]['trailerType'] + `</p>
+                                        <p>Manufacturer : ` + res[rentalType][rental]['manuf'] + `</p>
+                                        <p>Model: ` + res[rentalType][rental]['model'] + `</p>
+                                        <p>Year: ` + res[rentalType][rental]['year'] + `</p>
+                                        <p>Price: ` + res[rentalType][rental]['price'] + `</p>
+                                        <div class='edit-rental-btn'>Edit Rental</div>
+                                    </div>
+                                    `
+                                    break
+                            }
+
+                            
+                            //console.log((res[rentalType][rental]['renterId']))
+                            currentRentals += rentalContent
+                        })
+                    })
+                    if(currentRentals==''){currentRentals = 'None'}
+                    if(rentedRentals==''){rentedRentals = 'None'}
+                    if(pastRentals==''){pastRentals = 'None'}
+                    $('#current-listed').html(currentRentals)
+                    $('#current-rented').html(rentedRentals)
+                    $('#past-rentals').html(pastRentals)
+
+                }
+            })
+            
             RenderAccountSideNav('rentals')
             sideNavFunc(user)
 
@@ -503,6 +568,7 @@ export default class extends AbstractView{
                             price: price,
                             ownerId: user._id,
                         }
+                        break
                     case 'trailer':
                         let trailerType = $('#trailerType').val()
                         let bodyLength = $('#bodyLength').val()
@@ -521,7 +587,9 @@ export default class extends AbstractView{
                             price: price,
                             ownerId: user._id,
                         }
+                        break
                 }
+                console.log(rt);
                 console.log(rental);
                 //send ajax post /truck or /trailer based on type
                 let link = 'http://localhost:5050/rental/' + rt
@@ -537,10 +605,9 @@ export default class extends AbstractView{
                     'success': function(res){
                         console.log('sent');
                         console.log(res);
+                        window.location.href = '/rental/' + res._id
                     }
                 })
-
-                //redirect to rental view
             })
         }
         

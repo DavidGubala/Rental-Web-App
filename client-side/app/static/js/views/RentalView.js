@@ -5,11 +5,24 @@ export default class extends AbstractView{
         super(params);
     }
 
+    async getJS(){
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                "Access-Control-Allow-Origin": "http://localhost:5040"
+            },
+            type: 'GET',
+            url : 'http://localhost:5050/rental/' + this.params.id,
+            'success': function(res){
+                console.log(res)
+            }
+        })
+    }
+
     async getHtml() {
-        console.log(this.params.id)
         return `
-            <h1>Now Viewing a specific rental</h1>
-            <p>In this app view we will show information about a specific rental</p>
+
         `;
     }
 }

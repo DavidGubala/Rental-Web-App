@@ -11,10 +11,30 @@ router.get('/inventory', async (req, res)=>{
     try{
         const trucks = await Truck.find();
         const trailers = await Trailer.find();
-        const inv = trucks + trailers;
+        const inv = {
+            trucks, 
+            trailers
+        };
         res.json(inv);
     }catch(err){
-        res.json({message: err});
+        res.json({message: 'noVehicles'});
+    }
+});
+
+// Read Rental
+router.get('/:tid', async (req, res)=>{
+    try{
+        const trailer = await Trailer.findById(req.params.tid);
+        const truck = await Truck.findById(req.params.tid);
+        if(trailer){
+            res.json(trailer);
+        }else if(truck){
+            res.json(truck);
+        }else{
+            res.json({message: 'no such rental'});
+        }
+    }catch(err){
+        res.json({message: 'no such rental'});
     }
 });
 

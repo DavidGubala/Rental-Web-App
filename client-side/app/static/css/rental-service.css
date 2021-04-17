@@ -1,0 +1,23 @@
+#rentals-service{
+    justify-content: center;
+}
+
+.lor>#rental-list-item>.rent-rental-btn{
+    grid-row-start: 1;
+    grid-row-end: 4;
+    grid-column-start: 4;
+    grid-column-end: 5;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    background-color: #6f90f3;
+    border-style: dashed;
+    border-width: 0.61px;
+    border-radius: 6px;
+    transition: all 0.61s ease 0s;
+}
+
+.lor>#rental-list-item>.rent-rental-btn:hover{
+    background-color: #ffe39d;
+    cursor: pointer;
+}
