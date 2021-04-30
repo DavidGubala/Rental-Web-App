@@ -41,7 +41,10 @@ router.get('/:uid', async (req, res)=>{
 //Update Carrier 
 router.put('/:uid', async (req, res)=>{
     try{
+        console.log(req.params.uid)
+        console.log(req.body)
         const updatedCarrier = await Carrier.updateOne({_id: req.params.uid}, req.body);
+        console.log(updatedCarrier)
         res.json(updatedCarrier);
     }catch(err){
         res.json({message: err});

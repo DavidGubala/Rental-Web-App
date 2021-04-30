@@ -5,7 +5,8 @@ const bodyParser = require("body-parser");
 const cors = require('cors')
 
 require('dotenv/config');
-
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
 app.use(bodyParser.json());
 
 //Import routes

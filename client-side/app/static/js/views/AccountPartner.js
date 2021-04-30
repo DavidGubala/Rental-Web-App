@@ -351,7 +351,7 @@ export default class extends AbstractView{
                                         <p>Year: ` + res[rentalType][rental]['year'] + `</p>
                                         <p>Odometer: ` + res[rentalType][rental]['odometer'] + `</p>
                                         <p>Price: ` + res[rentalType][rental]['price'] + `</p>
-                                        <div class='edit-rental-btn'>Edit Rental</div>
+                                        <div class='view-rental-btn' id='`+ res[rentalType][rental]['_id'] + `'>View Rental</div>
                                     </div>
                                     `
                                     break
@@ -364,7 +364,7 @@ export default class extends AbstractView{
                                         <p>Model: ` + res[rentalType][rental]['model'] + `</p>
                                         <p>Year: ` + res[rentalType][rental]['year'] + `</p>
                                         <p>Price: ` + res[rentalType][rental]['price'] + `</p>
-                                        <div class='edit-rental-btn'>Edit Rental</div>
+                                        <div class='view-rental-btn' id='`+ res[rentalType][rental]['_id'] + `'>View Rental</div>
                                     </div>
                                     `
                                     break
@@ -372,15 +372,17 @@ export default class extends AbstractView{
 
                             
                             //console.log((res[rentalType][rental]['renterId']))
-                            currentRentals += rentalContent
+                            if((res[rentalType][rental]['renterId']) == 'available'){
+                                currentRentals += rentalContent
+                            }else{
+                                rentedRentals += rentalContent
+                            }
                         })
                     })
                     if(currentRentals==''){currentRentals = 'None'}
                     if(rentedRentals==''){rentedRentals = 'None'}
-                    if(pastRentals==''){pastRentals = 'None'}
                     $('#current-listed').html(currentRentals)
                     $('#current-rented').html(rentedRentals)
-                    $('#past-rentals').html(pastRentals)
 
                 }
             })
@@ -444,12 +446,15 @@ export default class extends AbstractView{
                                 <input type="text" id="price" name="price" placeholder="">
                                 
                                 <label for="pricingType">Pricing Type:</label>
-                                <select class="pricingType" name="pricingType">
+                                <select id="pricingType" name="pricingType">
                                     <option value="" disabled selected>Select Rental Length..</option>    
                                     <option value="shipper">Per Day</option>
                                     <option value="partner">Per Week</option>
                                     <option value="partner">Per Month</option>
                                 </select>
+
+                                <label for="rental-pics">Upload Photos:</label>
+                                <input type="file" id="rental-pics" name="rental-pics" multiple>
                                 
                                 <div class='save-rental-btn'>Save New Rental</div>
                             </form>
@@ -480,7 +485,7 @@ export default class extends AbstractView{
                                 <label for="model">Model:</label>
                                 <input type="text" id="model" name="model" placeholder="">
                                 
-                                <label for="year">Yaer:</label>
+                                <label for="year">Truck Year:</label>
                                 <input type="text" id="year" name="year" placeholder="">
 
                                 <label for="odometer">Odometer:</label>
@@ -508,13 +513,16 @@ export default class extends AbstractView{
                                 <input type="text" id="price" name="price" placeholder="">
                                 
                                 <label for="pricingType">Pricing Type:</label>
-                                <select class="pricingType" name="pricingType">
+                                <select id="pricingType" name="pricingType">
                                     <option value="" disabled selected>Select Rental Length..</option>    
                                     <option value="shipper">Per Day</option>
                                     <option value="partner">Per Week</option>
                                     <option value="partner">Per Month</option>
                                 </select>
-                                
+
+                                <label for="rental-pics">Upload Photos:</label>
+                                <input type="file" id="rental-pics" name="rental-pics" multiple>
+
                                 <div class='save-rental-btn'>Save New Rental</div>
                             </form>
                         </div>
@@ -547,6 +555,7 @@ export default class extends AbstractView{
                 let rental = undefined
                 let odometer = undefined
                 let pricingType = undefined
+                let photos = undefined
                 switch(rt){
                     case 'truck':
                         let truckType = $('#truckType').val()
@@ -555,6 +564,7 @@ export default class extends AbstractView{
                         let model = $('#model').val()
                         year = $('#year').val()
                         odometer = $('#odometer').val()
+                        photos = document.getElementById('rental-pics').files;
 
                         price = $('#price').val()
                         pricingType = $('#pricingType').val()
@@ -567,6 +577,7 @@ export default class extends AbstractView{
                             odometer: odometer,
                             price: price,
                             ownerId: user._id,
+                            pics: photos
                         }
                         break
                     case 'trailer':
@@ -575,6 +586,7 @@ export default class extends AbstractView{
                         let manuf = $('#manuf').val()
                         year = $('#year').val()
                         odometer = $('#odometer').val()
+                        photos = document.getElementById('rental-pics').files;
                         
                         price = $('#price').val()
                         pricingType = $('#pricingType').val()
@@ -586,6 +598,7 @@ export default class extends AbstractView{
                             odometer: odometer,
                             price: price,
                             ownerId: user._id,
+                            pics: photos
                         }
                         break
                 }
@@ -605,6 +618,7 @@ export default class extends AbstractView{
                     'success': function(res){
                         console.log('sent');
                         console.log(res);
+                        console.log(res._id)
                         window.location.href = '/rental/' + res._id
                     }
                 })

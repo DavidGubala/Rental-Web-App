@@ -18,7 +18,6 @@ export default class extends AbstractView{
                 console.log(res)
                 let currentRentals = ``
                 let rentedRentals = ``
-                let pastRentals = ``
                 // fill out rental
                 $.each(res ,function(rentalType) {
                     $.each(res[rentalType] ,function(rental) {
@@ -37,7 +36,7 @@ export default class extends AbstractView{
                                     <p>Year: ` + res[rentalType][rental]['year'] + `</p>
                                     <p>Odometer: ` + res[rentalType][rental]['odometer'] + `</p>
                                     <p>Price: ` + res[rentalType][rental]['price'] + `</p>
-                                    <div class='rent-rental-btn'>Rent</div>
+                                    <div class='view-rental-btn' id='`+ res[rentalType][rental]['_id'] + `'>View Rental</div>
                                 </div>
                                 `
                                 break
@@ -50,23 +49,31 @@ export default class extends AbstractView{
                                     <p>Model: ` + res[rentalType][rental]['model'] + `</p>
                                     <p>Year: ` + res[rentalType][rental]['year'] + `</p>
                                     <p>Price: ` + res[rentalType][rental]['price'] + `</p>
-                                    <div class='rent-rental-btn'>Rent</div>
+                                    <div class='view-rental-btn' id='`+ res[rentalType][rental]['_id'] + `'>View Rental</div>
                                 </div>
                                 `
                                 break
                         }
-
                         
-                        //console.log((res[rentalType][rental]['renterId']))
-                        currentRentals += rentalContent
+                        if((res[rentalType][rental]['renterId']) == 'available'){
+                            currentRentals += rentalContent
+                        }else{
+                            rentedRentals += rentalContent
+                        }
                     })
                 })
-                if(currentRentals==''){currentRentals = 'None'}
-                if(rentedRentals==''){rentedRentals = 'None'}
-                if(pastRentals==''){pastRentals = 'None'}
-                $('#rentals-service').html(currentRentals)
-                $('#current-rented').html(rentedRentals)
-                $('#past-rentals').html(pastRentals)
+
+                if(currentRentals==''){
+                    $('#rentals-service').html(`
+                        <div id="construction">
+                            <h2>No Available Rentals</h2>
+                            <img src="/static/assets/rentals/empty.svg" alt="empty svg">
+                            <button class = 'gbh'><span class = 'gbh'>Go Back Home</span></button>
+                        </div>
+                    `)
+                }else{
+                    $('#rentals-service').html(currentRentals)
+                }
             }
         })
     }

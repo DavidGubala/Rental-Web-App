@@ -33,22 +33,57 @@
     grid-column-end: 3;
     grid-row-start: 4;
     display: grid;
-    grid-template-rows: repeat(7,[row] 70px);
+    grid-template-rows: repeat(7,[row] 75px);
     background-color: #e0e9ff;
 }
 
 #account-side-nav>.side-link{
     display: grid;
-    justify-content: center;
-    padding-top: 10px;
+    grid-template-rows: 10px 40px 5px 25px 5px;
     transition: all 0.61s ease 0s;
     border-radius: 6px;
+}
+
+#account-side-nav>.side-link>a{
+    justify-self: center;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+#account-side-nav>.side-link>p{
+    justify-self: center;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    opacity: 0;
+    transition: all 0.61s ease 0s;
+    font-size: small;
 }
 
 #account-side-nav>.side-link:hover{
     background-color: #ffe39d;
     cursor: pointer;
 }
+
+#account-side-nav>#settings-side-nav:hover p{
+    opacity: 1;
+}
+
+#account-side-nav>#license-side-nav:hover p{
+    opacity: 1;
+}
+
+#account-side-nav>#accounting-side-nav:hover p{
+    opacity: 1;
+}
+
+#account-side-nav>#rentals-side-nav:hover p{
+    opacity: 1;
+}
+
+#account-side-nav>#loads-side-nav:hover p{
+    opacity: 1;
+}
+
 
 #account-side-nav>.selected{
     background-color: #ffc83b;
@@ -284,6 +319,182 @@
     grid-row-end: 10;
 }
 
+#edit-account-content>.account-form-confirm{
+    grid-column-start: 6;
+    grid-column-end: 9;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    display: grid;
+    grid-template-rows: repeat(10, [row] 30px);
+    grid-template-columns: repeat(3, [col] 122px);
+    column-gap: 16px;
+}
+
+.login-form>#err{
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    align-content: center;
+}
+
+.login-form>#err>p{
+    background-color: #F77979;
+    align-self: center;
+    color: #f2f5ff;
+}
+
+#edit-account-content>.account-form-confirm>#message{
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+#edit-account-content>.account-form-confirm>#err{
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 6;
+    grid-row-end: 7;
+    align-content: center;
+}
+
+#edit-account-content>.account-form-confirm>#err>p{
+    background-color: #F77979;
+    align-self: center;
+    color: #f2f5ff;
+}
+
+#edit-account-content>.account-form-confirm>#ct{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+#edit-account-content>.account-form-confirm>#fname{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+#edit-account-content>.account-form-confirm>#lname{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+#edit-account-content>.account-form-confirm>#email{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+#edit-account-content>.account-form-confirm>#phone{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+#edit-account-content>.account-form-confirm>#ad{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 5;
+    grid-row-end: 6;
+}
+
+#edit-account-content>.account-form-confirm>#street{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 5;
+    grid-row-end: 6;
+}
+
+#edit-account-content>.account-form-confirm>#city{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 6;
+    grid-row-end: 7;
+}
+
+#edit-account-content>.account-form-confirm>#state{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 6;
+    grid-row-end: 7;
+} 
+#edit-account-content>.account-form-confirm>#country{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 7;
+    grid-row-end: 8;
+}
+
+#edit-account-content>.account-form-confirm>#zip{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 7;
+    grid-row-end: 8;
+}
+
+#edit-account-content>.account-form-confirm>#opass-label{
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+#edit-account-content>.account-form-confirm>#opass{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+#edit-account-content>.account-form-confirm>.conf-btn{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 10;
+    grid-row-end: 11;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    background-color: #294dbb;
+    color: #c4cce2;
+    border-radius: 6px;
+    transition: all 0.61s ease 0s;
+}
+
+#edit-account-content>.account-form-confirm>.conf-btn:hover{
+    background-color: #4b69c4;
+    cursor: pointer;
+}
+
+#edit-account-content>.account-form-error{
+    grid-column-start: 6;
+    grid-column-end: 9;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    display: grid;
+    grid-template-rows: repeat(10, [row] 30px);
+    grid-template-columns: repeat(3, [col] 122px);
+    column-gap: 16px;
+}
+
+#edit-account-content>.account-form-error>#message{
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    justify-content: center;
+    align-content: center;
+    background-color: #F77979;
+}
+
 #license-content{
     display: grid;
     grid-template-rows: 35px 30px 30px 30px 30px;
@@ -338,20 +549,73 @@
 
 #profile-content{
     grid-column-start: 2;
-    grid-column-end: 12;
+    grid-column-end: 6;
     grid-row-start: 4;
     grid-row-end: 5;
     display: grid;
-    grid-template-rows: 35px 30px 30px 30px 30px;
-    grid-template-columns: repeat(10, [col] 122px);
+    grid-template-rows: repeat(7, [row] 35px);
+    grid-template-columns: repeat(4, [col] 122px);
     column-gap: 16px;
 }
 
-#profile-content>.account-settings-btn{
-    grid-column-start: 4;
-    grid-column-end: 6;
+#profile-content>#contact{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+#profile-content>#name{
+    grid-column-start: 2;
+    grid-column-end: 4;
     grid-row-start: 2;
     grid-row-end: 3;
+}
+
+#profile-content>#email{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+#profile-content>#phone{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 4;
+    grid-row-end: 5;
+}
+
+#profile-content>#rating{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+#profile-content>#rate{
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+#profile-btns{
+    grid-column-start: 6;
+    grid-column-end: 8;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    display: grid;
+    grid-template-rows: repeat(4, [row] 35px);
+    grid-template-columns: repeat(2, [col] 122px);
+    column-gap: 16px;
+}
+
+#profile-btns>.account-settings-btn{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
     display: grid;
     justify-content: center;
     align-content: center;
@@ -360,7 +624,7 @@
     transition: all 0.61s ease 0s;
 }
 
-#profile-content>.account-settings-btn:hover{
+#profile-btns>.account-settings-btn:hover{
     background-color: #ffe39d;
     cursor: pointer;
 }
@@ -421,11 +685,13 @@
     margin-right: 17px;
 }
 
-.lor>#rental-list-item>.edit-rental-btn{
+.lor>#rental-list-item>.view-rental-btn{
     grid-row-start: 1;
     grid-row-end: 4;
     grid-column-start: 4;
     grid-column-end: 5;
+    margin-top: 7px;
+    margin-bottom: 7px;
     display: grid;
     justify-content: center;
     align-content: center;
@@ -436,7 +702,7 @@
     transition: all 0.61s ease 0s;
 }
 
-.lor>#rental-list-item>.edit-rental-btn:hover{
+.lor>#rental-list-item>.view-rental-btn:hover{
     background-color: #ffe39d;
     cursor: pointer;
 }
@@ -465,10 +731,12 @@
     grid-row-start: 2;
     grid-row-end: 3;
     display: grid;
-    grid-template-rows: repeat(17, [row] 30px);
-    grid-template-columns: repeat(2, [col] 122px);
-    column-gap: 16px;
+    grid-template-rows: repeat(18, [row] 30px);
+    grid-template-columns: 144px 256px;
+    column-gap: 7px;
     row-gap: 16px;
+    font-size: 16px;
+    align-content: flex-end;
 }
 
 #account-accounting-content{
@@ -490,8 +758,8 @@
 .rental-form>.save-rental-btn{
     grid-column-start: 1;
     grid-column-end: 3;
-    grid-row-start: 16;
-    grid-row-end: 17;
+    grid-row-start: 17;
+    grid-row-end: 18;
     display: grid;
     align-content: center;
     justify-content: center;

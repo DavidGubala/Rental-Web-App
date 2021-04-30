@@ -21,7 +21,6 @@ export default class extends AbstractView{
         });
 
         $( ".login-form" ).submit(function( event ) {
-            //alert( "Handler for .submit() called." );
             event.preventDefault();
             //Declare all variables from form
             let ut = $('.userType').val()
@@ -34,7 +33,8 @@ export default class extends AbstractView{
             }
             let link = 'http://localhost:5050/login'
 
-            //Ajax call to create the new user
+            //Ajax call to login user
+            //post req to /login all auth handled in backend
             $.ajax({
                 headers: {
                     'Accept': 'application/json',
@@ -61,7 +61,18 @@ export default class extends AbstractView{
                                 typelink = '/partner/'
                                 break
                         }
+                    // redirect to user account page after login
                     window.location.href = typelink + res.uid
+                    }else{
+                        // respond with an error
+                        switch(res.status){
+                            case 'bad_pass':
+                                $('.login-form>#err').html('<p>Incorrect Account Password</p>')
+                                break
+                            case 'no_acc':
+                                $('.login-form>#err').html('<p>' + $('.userType').val().charAt(0).toUpperCase() + $('.userType').val().slice(1) + ' Account Does Not Exist</p>')
+                                break
+                        }
                     }
                 }
             });
@@ -73,14 +84,15 @@ export default class extends AbstractView{
             <div class="login">
                 <form class="login-form">
                     <h1>Login</h1>
-                    <select class="userType" name="userType">
+                    <div id='err'></div>
+                    <select class="userType" name="userType" required>
                         <option value="" disabled selected>Select Account Type..</option>    
                         <option value="shipper">Shipper</option>
                         <option value="carrier">Carrier</option>
                         <option value="partner">Partner</option>
                     </select>
-                    <input type="text" id="email" name="email" placeholder="Your email address..">
-                    <input type="text" id="pass" name="pass" placeholder="Password..">
+                    <input type="text" id="email" name="email" placeholder="Your email address.." required>
+                    <input type="password" id="pass" name="pass" placeholder="Password.." required>
                     <input type="submit" value="Sign In">
                     <p>
                         Don't have an Account?  

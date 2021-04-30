@@ -182,6 +182,10 @@ document.body.addEventListener("click", e => {
             }
         })
     }
+    if (e.target.matches(".view-rental-btn")){
+        console.log(e.target.id)
+        NavigateTo(`/rental/` + e.target.id)
+    }
     if (e.target.matches("#account-icon")){
         var token = localStorage.getItem('token')
         let authReq = {

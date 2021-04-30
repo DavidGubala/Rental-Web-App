@@ -27,14 +27,20 @@ router.get('/:tid', async (req, res)=>{
         const trailer = await Trailer.findById(req.params.tid);
         const truck = await Truck.findById(req.params.tid);
         if(trailer){
-            res.json(trailer);
+            res.json({
+                message:'trailer',
+                rental: trailer
+            });
         }else if(truck){
-            res.json(truck);
+            res.json({
+                message:'truck',
+                rental: truck
+            });
         }else{
-            res.json({message: 'no such rental'});
+            res.json({message: 'notexist'});
         }
     }catch(err){
-        res.json({message: 'no such rental'});
+        res.json({message: 'notexist'});
     }
 });
 

@@ -36,6 +36,24 @@
     align-self: end;
 }
 
+.login-form>#err{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    display: grid;
+    grid-template-rows: 17px 36px 17px;
+    align-content: center;
+}
+
+.login-form>#err>p{
+    grid-row-start: 2;
+    grid-row-end: 3;
+    background-color: #F77979;
+    align-self: center;
+    color: #f2f5ff;
+}
+
 .login-form>select{
     grid-column-start: 2;
     grid-column-end: 4;

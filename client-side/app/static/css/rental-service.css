@@ -2,22 +2,153 @@
     justify-content: center;
 }
 
-.lor>#rental-list-item>.rent-rental-btn{
-    grid-row-start: 1;
-    grid-row-end: 4;
-    grid-column-start: 4;
+#rental-view{
+    display: grid;
+    font-family: "Montserrat", sans-serif;
+    grid-template-rows: 35px 70px 35px auto;
+    grid-template-columns: repeat(12, [col] 122px);
+    column-gap: 16px;
+}
+
+#rental-view>h1{
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 2;
     grid-column-end: 5;
+}
+
+#rental-view>#info{
+    grid-row-start: 4;
+    grid-row-end: 5;
+    display: grid;
+    grid-template-rows: repeat(8, [row] 35px);
+    grid-template-columns: repeat(4, [col] 122px);
+    column-gap: 16px;
+}
+
+#rental-view>#info>#t-t{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+#rental-view>#info>#t-o{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+
+#rental-view>#info>#ma-t{
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+#rental-view>#info>#ma-o{
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+
+#rental-view>#info>#mo-t{
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+#rental-view>#info>#mo-o{
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+
+#rental-view>#info>#y-t{
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+#rental-view>#info>#y-o{
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+
+#rental-view>#info>#od-t{
+    grid-row-start: 5;
+    grid-row-end: 6;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+#rental-view>#info>#od-o{
+    grid-row-start: 5;
+    grid-row-end: 6;
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+
+#rental-view>#info>#p-t{
+    grid-row-start: 6;
+    grid-row-end: 7;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+#rental-view>#info>#p-o{
+    grid-row-start: 6;
+    grid-row-end: 7;
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+
+#rental-view>#rbtns{
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column-start: 5;
+    grid-column-end: 9;
+    display: grid;
+    grid-template-rows: repeat(8, [row] 35px);
+    grid-template-columns: 122px;
+    column-gap: 16px;
+}
+
+#rental-view>#rbtns>.edit{
+    grid-row-start: 2;
+    grid-row-end: 3;
     display: grid;
     justify-content: center;
     align-content: center;
-    background-color: #6f90f3;
-    border-style: dashed;
-    border-width: 0.61px;
+    background-color: #FFB700;
     border-radius: 6px;
     transition: all 0.61s ease 0s;
 }
 
-.lor>#rental-list-item>.rent-rental-btn:hover{
+#rental-view>#rbtns>.edit:hover{
+    background-color: #ffe39d;
+    cursor: pointer;
+}
+
+#rental-view>#rbtns>.rent{
+    grid-row-start: 2;
+    grid-row-end: 3;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    background-color: #FFB700;
+    border-radius: 6px;
+    transition: all 0.61s ease 0s;
+}
+
+#rental-view>#rbtns>.rent:hover{
     background-color: #ffe39d;
     cursor: pointer;
 }

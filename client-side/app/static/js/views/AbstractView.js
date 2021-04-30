@@ -153,6 +153,9 @@ export default class{
         return `
         <div class="cont">
             <a href="/" class="foot__link" data-link id = "logo"><img class="logo" src="/static/assets/footer-logo.svg" alt="site logo"></a>
+            <div class="cprght">
+                <p>&copy; Copyright 2021 Shipper L.L.C.</p>
+            </div>
             <div class="people">
                 <h3>People</h3>
                 <a href="/shipper" class="foot__link" data-link id = "shipper">Shipper</a>

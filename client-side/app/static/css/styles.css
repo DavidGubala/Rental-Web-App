@@ -48,7 +48,7 @@ header {
 #footer>.cont{
     display: grid;
     grid-template-columns: repeat(12, [col] 122px);
-    grid-template-rows: 35px 106px 35px;
+    grid-template-rows: 30px 106px 30px 30px;
     grid-column-gap: 16px;
     grid-column-start: 2;
     grid-column-end: 3;
@@ -60,6 +60,14 @@ header {
     grid-row-start: 2;
     grid-row-end: 3;
 }
+
+#footer>.cont>.cprght{
+    grid-column-start: 3;
+    grid-column-end: 5;
+    grid-row-start: 4;
+    grid-row-end: 5;
+}
+
 #footer>.cont>.people{
     grid-column-start: 5;
     grid-column-end: 6;
@@ -91,4 +99,9 @@ header {
 #footer>.cont>div>a{
     color: white;
     text-decoration: none;
+}
+
+#footer>.cont>div>p{
+    color: white;
+    font-size: small;
 }

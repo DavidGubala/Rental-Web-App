@@ -3,11 +3,11 @@ const mongoose = require('mongoose');
 const ShipperSchema = mongoose.Schema({
     fname:  {
         type: String,
-        default : 'none'
+        required: true
     },
     lname:  {
         type: String,
-        default : 'none'
+        required: true
     },
     companyName:  {
         type: String,

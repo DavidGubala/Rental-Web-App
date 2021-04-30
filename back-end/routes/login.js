@@ -42,11 +42,11 @@ router.post('/', async (req, res)=>{
             user = await Partner.findOne({email:  req.body.email}).lean();
             break;
     }
-    //console.log(user)
+    //if no user return error
+    if(user == null){
+        res.json({status: 'no_acc'});
+    }
     const login = await Login.findOne({uid: user._id});
-    console.log(login)
-    
-    console.log(await bcrypt.compare(req.body.pass, login.pass))
 
     if(await bcrypt.compare(req.body.pass, login.pass)) {
         const token = jwt.sign({userType: req.body.loginType, uid: login.uid}, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '15s'})
@@ -65,11 +65,24 @@ router.post('/', async (req, res)=>{
                 uid: refresh.uid
             })
         }catch(err){
-            res.json({message: err});
+            res.json({status: err});
         }
+    }else{
+        res.json({status: 'bad_pass'});
     }
-    return res.sendStatus(403)
 });
+
+//endpoint used to check password is correct
+router.post('/pass', async (req, res)=>{
+    //console.log(req.body)
+    const login = await Login.findOne({uid: req.body.uid});
+    //console.log(login)
+    if(await bcrypt.compare(req.body.pass, login.pass)) {
+        res.json({status: 'ok'})
+    }else{
+        res.json({status: 'bad_pass'})
+    }
+})
 
 // AUTH Action
 router.post('/auth', async (req, res)=>{
@@ -102,8 +115,10 @@ router.post('/token', async (req, res)=>{
             status : 'ok',
             token: newAccess
         })
-    }else{
-        return res.sendStatus(403)
+    }else{ 
+        return res.json({
+            status : '403'
+        })
     }
 });
 
@@ -114,12 +129,14 @@ router.delete('/token', async (req, res)=>{
     return res.sendStatus(204)
 });
 
-/*
 // Update login
 router.put('/', async (req, res)=>{
+    console.log(req.body)
+    let userId = req.body.uid
+    let pwrd  = await bcrypt.hash(req.body.pass, 10)
     try{
-        const updatedLogin = await Login.updateOne({_id: req.params.lid}, req.body);
-        res.json(updatedLogin);
+        let login = await Login.findOneAndUpdate({uid: userId},{pass: pwrd})
+        res.json({message:'pass change complete'})
     }catch(err){
         res.json({message: err});
     }
@@ -134,7 +151,6 @@ router.delete('/', async (req, res)=>{
         res.json({message: err});
     }
 });
-*/
 
 
 module.exports = router;
