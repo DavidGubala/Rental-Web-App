@@ -1,27 +1,29 @@
 #shipper-info{
+    grid-column-start: 2;
+    grid-column-end: 3;
     display: grid;
     font-family: "Montserrat", sans-serif;
     grid-template-rows: 490px 245px auto;
-    grid-template-columns: repeat(12, [col] 122px);
     column-gap: 16px;
 }
 
 #shipper-info>#si1{
-    grid-column-start: 1;
-    grid-column-end: 13;
     grid-row-start: 1;
     grid-row-end: 2;
     color: #ebf0ff;
     background-image:  linear-gradient(to right, #00040f,rgba(255, 255, 255, 0) 61%), url('../assets/shipper-info-page/shipper-banner.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #000f3b;
     display: grid;
-    grid-template-columns: repeat(12, [col] 122px);
+    grid-template-columns: 7.43% 25% auto 7.43%;
     grid-template-rows: 140px 35px 70px 35px 70px 140px;
     column-gap: 16px;
 }
 
 #shipper-info>#si1>h1{
     grid-column-start: 2;
-    grid-column-end: 6;
+    grid-column-end: 4;
     grid-row-start: 1;
     grid-row-end: 2;
     font-size: 48px;
@@ -30,61 +32,60 @@
 }
 #shipper-info>#si1>p{
     grid-column-start: 2;
-    grid-column-end: 6;
+    grid-column-end: 3;
     grid-row-start: 3;
     grid-row-end: 4;
 }
 #shipper-info>#si1>button{
     grid-column-start: 2;
-    grid-column-end: 6;
+    grid-column-end: 4;
     grid-row-start: 5;
     grid-row-end: 6;
 }
 
 #shipper-info>#si2{
-    grid-column-start: 1;
-    grid-column-end: 13;
     grid-row-start: 2;
     grid-row-end: 3;
     display: grid;
     grid-template-rows: 35px 175px 35px;
-    grid-template-columns: repeat(12, [col] 122px);
-    column-gap: 16px;
+    grid-template-columns: auto 260px auto 260px auto 260px auto;
+    column-gap: 0.95%;
 }
 
 #shipper-info>#si2>#t1{
-    grid-column-start: 3;
-    grid-column-end: 5;
+    grid-column-start: 2;
+    grid-column-end: 3;
     grid-row-start: 2;
     grid-row-end: 3;
     display: grid;
     grid-template-rows: 40px 32px 68px;
     row-gap: 17px;
+    font-size: 16px;
 }
 
 #shipper-info>#si2>#t2{
-    grid-column-start: 6;
-    grid-column-end: 8;
+    grid-column-start: 4;
+    grid-column-end: 5;
     grid-row-start: 2;
     grid-row-end: 3;
     display: grid;
     grid-template-rows: 40px 32px 64px;
     row-gap: 17px;
+    font-size: 16px;
 }
 
 #shipper-info>#si2>#t3{
-    grid-column-start: 9;
-    grid-column-end: 11;
+    grid-column-start: 6;
+    grid-column-end: 7;
     grid-row-start: 2;
     grid-row-end: 3;
     display: grid;
     grid-template-rows: 40px 32px 64px;
     row-gap: 17px;
+    font-size: 16px;
 }
 
 #shipper-info>#si3{
-    grid-column-start: 1;
-    grid-column-end: 13;
     grid-row-start: 3;
     grid-row-end: 4;
 }

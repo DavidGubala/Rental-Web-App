@@ -107,7 +107,6 @@ export default class{
     }
 
     async getNav(){
-        // eventually I'll use the backend to check if the usser is logged in and change this from having Login/Signup
         let content = ''
         if(localStorage.getItem('token') == undefined){
             content =  `
@@ -117,7 +116,7 @@ export default class{
             <a href="/partner" class="nav__link" data-link id = "partner">Partner</a>
             <a href="/about" class="nav__link" data-link id = "about">About</a>
             <div id = "services">
-                <a>Services<img id = "service-icon" src="/static/assets/nav-bar/icons/services-icon.svg"></a>
+                <a class="nav__link">Services<img id = "service-icon" src="/static/assets/nav-bar/icons/services-icon.svg"></a>
                 <ul class = "sub-menu">
                     <li><a href="/rental" class="nav__link" data-link id = 'rentals'>Rentals</a></li>
                     <li><a href="/load" class="nav__link" data-link id = 'loads'>Loads</a></li>

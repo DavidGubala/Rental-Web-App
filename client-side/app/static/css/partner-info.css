@@ -1,9 +1,9 @@
 #partner-info{
+    grid-column-start: 2;
+    grid-column-end: 3;
     display: grid;
     font-family: "Montserrat", sans-serif;
     grid-template-rows: 490px 245px auto;
-    grid-template-columns: repeat(12, [col] 122px);
-    column-gap: 16px;
 }
 
 #partner-info>#pi1{
@@ -14,7 +14,7 @@
     color: #ebf0ff;
     background-image:  linear-gradient(to right, #00040f,rgba(255, 255, 255, 0) 61%), url('../assets/partner-info-page/partner-banner.jpg');
     display: grid;
-    grid-template-columns: repeat(12, [col] 122px);
+    grid-template-columns: 7.43% 25% auto 7.43%;
     grid-template-rows: 140px 35px 70px 35px 70px 140px;
     column-gap: 16px;
 }
@@ -48,38 +48,41 @@
     grid-row-end: 3;
     display: grid;
     grid-template-rows: 35px 175px 35px;
-    grid-template-columns: repeat(12, [col] 122px);
+    grid-template-columns: auto 260px auto 260px auto 260px auto;;
     column-gap: 16px;
 }
 
 #partner-info>#pi2>#t1{
-    grid-column-start: 3;
-    grid-column-end: 5;
+    grid-column-start: 2;
+    grid-column-end: 3;
     grid-row-start: 2;
     grid-row-end: 3;
     display: grid;
     grid-template-rows: 40px 32px 68px;
     row-gap: 17px;
+    font-size: 16px;
 }
 
 #partner-info>#pi2>#t2{
-    grid-column-start: 6;
-    grid-column-end: 8;
+    grid-column-start: 4;
+    grid-column-end: 5;
     grid-row-start: 2;
     grid-row-end: 3;
     display: grid;
     grid-template-rows: 40px 32px 64px;
     row-gap: 17px;
+    font-size: 16px;
 }
 
 #partner-info>#pi2>#t3{
-    grid-column-start: 9;
-    grid-column-end: 11;
+    grid-column-start: 6;
+    grid-column-end: 7;
     grid-row-start: 2;
     grid-row-end: 3;
     display: grid;
     grid-template-rows: 40px 32px 64px;
     row-gap: 17px;
+    font-size: 16px;
 }
 
 #partner-info>#pi3{

@@ -1,9 +1,9 @@
 #landing{
+    grid-column-start: 2;
+    grid-column-end: 3;
     display: grid;
     font-family: "Montserrat", sans-serif;
-    grid-template-rows: repeat(4, 840px);
-    grid-template-columns: repeat(12, [col] 122px);
-    column-gap: 16px;
+    grid-template-rows: 840px 700px 700px 700px;
 }
 
 #landing>div>button{
@@ -11,16 +11,17 @@
 }
 
 #ls1{
-    grid-column-start: 1;
-    grid-column-end: 13;
     grid-row-start: 1;
     grid-row-end: 2;
     color: #ebf0ff;
     background-image:  linear-gradient(to right, #141F40,rgba(255, 255, 255, 0) 100%), url('../assets/landing-page/world-banner.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #000f3b;
     display: grid;
-    grid-template-columns: repeat(12, [col] 122px);
+    grid-template-columns: 7.43% 122px 122px 122px 7.43% 7.43% auto;
     grid-template-rows: 70px 70px 70px 70px 70px 35px 70px 35px 35px 315px;
-    column-gap: 16px;
+    column-gap: 0.95%;
 }
 
 #ls1>h1{
@@ -43,9 +44,20 @@
 
 #ls1>img{
     grid-column-start: 7;
-    grid-column-end: 12;
+    grid-column-end: 8;
     grid-row-start: 4;
     grid-row-end: 11;
+    max-width: 100%;
+}
+
+@media (max-width: 1599px){
+    #ls1>img{
+        grid-column-start: 7;
+        grid-column-end: 8;
+        grid-row-start: 5;
+        grid-row-end: 11;
+        max-width: 100%;
+    }
 }
 
 #ls1>#cl{
@@ -100,7 +112,6 @@
     grid-row-end: 9;
     display: grid;
     grid-template-rows: repeat(2, 35px);
-    border-right: thin solid #ebf0ff;
 }
 
 #ls1>#pl>a{
@@ -184,21 +195,19 @@
 }
 
 #ls2{
-    grid-column-start: 1;
-    grid-column-end: 13;
     grid-row-start: 2;
     grid-row-end: 3;
     font-family: "Montserrat", sans-serif;
     color: #141F40;
     display: grid;
-    grid-template-columns: repeat(12, [col] 122px);
-    grid-template-rows: 140px 140px 70px 70px 70px 70px 140px 140px;
+    grid-template-columns: 7.43% auto 3.2% 30% 7.43%;
+    grid-template-rows: 140px 140px 70px 70px 70px 70px 140px;
     column-gap: 16px;
 }
 
 #ls2>h1{
-    grid-column-start: 8;
-    grid-column-end: 12;
+    grid-column-start: 4;
+    grid-column-end: 5;
     grid-row-start: 2;
     grid-row-end: 3;
     font-size: 48px;
@@ -206,8 +215,8 @@
 }
 
 #ls2>p{
-    grid-column-start: 8;
-    grid-column-end: 12;
+    grid-column-start: 4;
+    grid-column-end: 5;
     grid-row-start: 4;
     grid-row-end: 5;
     font-size: 20px;
@@ -215,35 +224,36 @@
 
 #ls2>img{
     grid-column-start: 2;
-    grid-column-end: 7;
+    grid-column-end: 3;
     grid-row-start: 2;
     grid-row-end: 7;
+    max-width: 100%;
+    justify-self: center;
+    align-self: center;
 }
 
 #ls2>button{
-    grid-column-start: 8;
-    grid-column-end: 12;
+    grid-column-start: 4;
+    grid-column-end: 5;
     grid-row-start: 6;
     grid-row-end: 7;
 }
 
 #ls3{
-    grid-column-start: 1;
-    grid-column-end: 13;
     grid-row-start: 3;
     grid-row-end: 4;
     font-family: "Montserrat", sans-serif;
     color: white;
     background-color: #141F40;
     display: grid;
-    grid-template-columns: repeat(12, [col] 122px);
-    grid-template-rows: 140px 140px 70px 70px 70px 70px 140px 140px;
+    grid-template-columns: 7.43% 30% 3.2% auto 7.43%;
+    grid-template-rows: 140px 140px 70px 70px 70px 70px 140px;
     column-gap: 16px;
 }
 
 #ls3>h1{
     grid-column-start: 2;
-    grid-column-end: 6;
+    grid-column-end: 3;
     grid-row-start: 2;
     grid-row-end: 3;
     font-size: 48px;
@@ -252,43 +262,44 @@
 
 #ls3>p{
     grid-column-start: 2;
-    grid-column-end: 6;
+    grid-column-end: 3;
     grid-row-start: 4;
     grid-row-end: 5;
     font-size: 20px;
 }
 
 #ls3>img{
-    grid-column-start: 6;
-    grid-column-end: 12;
+    grid-column-start: 4;
+    grid-column-end: 5;
     grid-row-start: 2;
-    grid-row-end: 5;
+    grid-row-end: 7;
+    max-width: 100%;
+    justify-self: center;
+    align-self: center;
 }
 
 #ls3>button{
     grid-column-start: 2;
-    grid-column-end: 6;
+    grid-column-end: 3;
     grid-row-start: 6;
     grid-row-end: 7;
 }
 
 #ls4{
-    grid-column-start: 1;
-    grid-column-end: 13;
     grid-row-start: 4;
     grid-row-end: 5;
     font-family: "Montserrat", sans-serif;
     color: #141F40;
     display: grid;
-    grid-template-columns: repeat(12, [col] 122px);
-    grid-template-rows: 140px 140px 70px 70px 70px 70px 140px 140px;
+    grid-template-columns: 7.43% auto 3.2% 30% 7.43%;
+    grid-template-rows: 140px 140px 70px 70px 70px 70px 140px;
     column-gap: 16px;
 }
 
 
 #ls4>h1{
-    grid-column-start: 8;
-    grid-column-end:12;
+    grid-column-start: 4;
+    grid-column-end: 5;
     grid-row-start: 2;
     grid-row-end: 3;
     font-size: 48px;
@@ -296,8 +307,8 @@
 }
 
 #ls4>p{
-    grid-column-start: 8;
-    grid-column-end: 12;
+    grid-column-start: 4;
+    grid-column-end: 5;
     grid-row-start: 4;
     grid-row-end: 5;
     font-size: 20px;
@@ -305,14 +316,17 @@
 
 #ls4>img{
     grid-column-start: 2;
-    grid-column-end: 6;
+    grid-column-end: 3;
     grid-row-start: 2;
     grid-row-end: 7;
+    max-width: 100%;
+    justify-self: center;
+    align-self: center;
 }
 
 #ls4>button{
-    grid-column-start: 8;
-    grid-column-end: 12;
+    grid-column-start: 4;
+    grid-column-end: 5;
     grid-row-start: 6;
     grid-row-end: 7;
 }
