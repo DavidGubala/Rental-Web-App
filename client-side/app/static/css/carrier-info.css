@@ -4,24 +4,26 @@
     display: grid;
     font-family: "Montserrat", sans-serif;
     grid-template-rows: 490px 245px auto;
+    column-gap: 16px;
 }
 
 #carrier-info>#ci1{
-    grid-column-start: 1;
-    grid-column-end: 13;
     grid-row-start: 1;
     grid-row-end: 2;
     color: #ebf0ff;
     background-image:  linear-gradient(to right, #00040f,rgba(255, 255, 255, 0) 61%), url('../assets/carrier-info-page/carrier-banner.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #000f3b;
     display: grid;
-    grid-template-columns: 7.43% 25% auto 7.43%;
+    grid-template-columns: 7.43% 398px auto 7.43%;
     grid-template-rows: 140px 35px 70px 35px 70px 140px;
     column-gap: 16px;
 }
 
 #carrier-info>#ci1>h1{
     grid-column-start: 2;
-    grid-column-end: 6;
+    grid-column-end: 4;
     grid-row-start: 1;
     grid-row-end: 2;
     font-size: 48px;
@@ -30,26 +32,24 @@
 }
 #carrier-info>#ci1>p{
     grid-column-start: 2;
-    grid-column-end: 6;
+    grid-column-end: 3;
     grid-row-start: 3;
     grid-row-end: 4;
 }
 #carrier-info>#ci1>button{
     grid-column-start: 2;
-    grid-column-end: 6;
+    grid-column-end: 4;
     grid-row-start: 5;
     grid-row-end: 6;
 }
 
 #carrier-info>#ci2{
-    grid-column-start: 1;
-    grid-column-end: 13;
     grid-row-start: 2;
     grid-row-end: 3;
     display: grid;
     grid-template-rows: 35px 175px 35px;
-    grid-template-columns: auto 260px auto 260px auto 260px auto;;
-    column-gap: 16px;
+    grid-template-columns: auto 260px auto 260px auto 260px auto;
+    column-gap: 0.95%;
 }
 
 #carrier-info>#ci2>#t1{
@@ -60,7 +60,7 @@
     display: grid;
     grid-template-rows: 40px 32px 68px;
     row-gap: 17px;
-    font-size: 16px;
+    font-cize: 16px;
 }
 
 #carrier-info>#ci2>#t2{
@@ -71,7 +71,7 @@
     display: grid;
     grid-template-rows: 40px 32px 64px;
     row-gap: 17px;
-    font-size: 16px;
+    font-cize: 16px;
 }
 
 #carrier-info>#ci2>#t3{
@@ -82,12 +82,10 @@
     display: grid;
     grid-template-rows: 40px 32px 64px;
     row-gap: 17px;
-    font-size: 16px;
+    font-cize: 16px;
 }
 
 #carrier-info>#ci3{
-    grid-column-start: 1;
-    grid-column-end: 13;
     grid-row-start: 3;
     grid-row-end: 4;
 }

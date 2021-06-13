@@ -1,9 +1,9 @@
 .about-page{
+    grid-column-start: 2;
+    grid-column-end: 3;
     display: grid;
     font-family: "Montserrat", sans-serif;
     grid-template-rows: 620px 420px 910px 507px;
-    grid-template-columns: repeat(12, [col] 122px);
-    column-gap: 16px;
 }
 
 .about-page>div>button{
@@ -11,20 +11,18 @@
 }
 
 #as1{
-    grid-column-start: 1;
-    grid-column-end: 13;
     grid-row-start: 1;
     grid-row-end: 2;
     color: #141F40;
     display: grid;
-    grid-template-columns: repeat(12, [col] 122px);
+    grid-template-columns: 7.43% auto 7.43% auto;
     grid-template-rows: 140px 70px 70px 140px 140px 70px;
     column-gap: 16px;
 }
 
 #as1>h1{
     grid-column-start: 2;
-    grid-column-end: 6;
+    grid-column-end: 3;
     grid-row-start: 2;
     grid-row-end: 3;
     font-size: 48px;
@@ -33,22 +31,21 @@
 
 #as1>p{
     grid-column-start: 2;
-    grid-column-end: 6;
+    grid-column-end: 3;
     grid-row-start: 4;
     grid-row-end: 5;
     font-size: 16px;
 }
 
 #as1>img{
-    grid-column-start: 7;
-    grid-column-end: 12;
+    grid-column-start: 4;
+    grid-column-end: 5;
     grid-row-start: 1;
     grid-row-end: 6;
+    justify-self: end;
 }
       
 #as2{
-    grid-column-start: 1;
-    grid-column-end: 13;
     grid-row-start: 2;
     grid-row-end: 3;
     font-family: "Montserrat", sans-serif;
@@ -90,8 +87,6 @@
 }
 
 #as3{
-    grid-column-start: 1;
-    grid-column-end: 13;
     grid-row-start: 3;
     grid-row-end: 4;
     font-family: "Montserrat", sans-serif;
@@ -228,8 +223,6 @@
 }
 
 #as4{
-    grid-column-start: 1;
-    grid-column-end: 13;
     grid-row-start: 4;
     grid-row-end: 5;
     font-family: "Montserrat", sans-serif;
