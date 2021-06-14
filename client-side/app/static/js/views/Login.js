@@ -9,13 +9,13 @@ export default class extends AbstractView{
         $('.userType').change(function() {
             switch($('.userType').val()){
                 case 'shipper':
-                    $('.graphic').html('<img src="/static/assets/landing-page/warehouse.svg" alt="warehouse svg">')
+                    $('.login-graphic').html('<img src="/static/assets/landing-page/warehouse.svg" alt="warehouse svg">')
                     break
                 case 'carrier':
-                    $('.graphic').html('<img src="/static/assets/landing-page/truck.svg" alt="struck svg">')
+                    $('.login-graphic').html('<img src="/static/assets/landing-page/truck.svg" alt="struck svg">')
                     break
                 case 'partner':
-                    $('.graphic').html('<img src="/static/assets/landing-page/fleet.svg" alt="fleet svg">')
+                    $('.login-graphic').html('<img src="/static/assets/landing-page/fleet.svg" alt="fleet svg">')
                     break
             }
         });
@@ -99,7 +99,7 @@ export default class extends AbstractView{
                         <a href="/register" class="nav__link" data-link id = "register">Register Here</a>
                     </p>
                 </form>
-                <div class="graphic">
+                <div class="login-graphic">
                 </div>
             </div>
         `;

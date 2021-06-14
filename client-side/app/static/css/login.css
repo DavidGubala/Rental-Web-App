@@ -3,29 +3,25 @@
     grid-column-end: 3;
     display: grid;
     font-family: "Montserrat", sans-serif;
-    grid-template-columns: 7.43% auto auto 7.43% ;
+    grid-template-columns: 7.43% 398px 7.43% auto 7.43% ;
 }
 .login-form{
     grid-column-start: 2;
     grid-column-end: 3;
-    grid-row-start: 1;
-    grid-row-end: 2;
     display: grid;
     font-family: "Montserrat", sans-serif;
     grid-template-rows: 140px 70px 35px 17px 35px 17px 35px 17px 35px 17px 35px 17px 35px 17px 35px 35px;
-    grid-template-columns: 260px;
 }
 
-.graphic{
-    grid-column-start: 3;
-    grid-column-end: 4;
-    grid-row-start: 1;
-    grid-row-end: 2;
+.login-graphic{
+    grid-column-start: 4;
+    grid-column-end: 5;
+    align-self: center;
+    justify-self: center;
 }
 
-.graphic>img{
-    grid-column-start: 1;
-    grid-column-end: 2;
+.login-graphic>img{
+    max-width: 100%;
 }
 
 .login-form>h1{
@@ -74,4 +70,10 @@
 .login-form>p{
     grid-row-start: 15;
     grid-row-end: 16;
+}
+
+.login-form>p>#register{
+    color: #012180;
+    font-weight: 500;
+    text-decoration: underline;
 }

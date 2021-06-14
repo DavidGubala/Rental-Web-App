@@ -1,35 +1,29 @@
 .register{
-    display: grid;
-    font-family: "Montserrat", sans-serif;
-    grid-column: 2;
-}
-.register-form{
-    grid-column-start: 1;
-    grid-column-end: 2;
-    display: grid;
-    font-family: "Montserrat", sans-serif;
-    grid-template-rows: 140px 70px 35px 17px 35px 17px 35px 17px 35px 17px 35px 17px 35px 17px 35px 17px 35px 35px;
-    grid-template-columns: repeat(6, [col] 122px);
-    column-gap: 16px;
-}
-
-.graphic{
     grid-column-start: 2;
     grid-column-end: 3;
     display: grid;
-    grid-template-rows: 70px auto;
-    column-gap: 16px;
+    font-family: "Montserrat", sans-serif;
+    grid-template-columns: 7.43% 398px 7.43% auto 7.43% ;
 }
-.graphic>img{
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row-start: 2;
-    grid-row-end: 3;
+.register-form{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    display: grid;
+    font-family: "Montserrat", sans-serif;
+    grid-template-rows: 140px 70px 35px 17px 35px 17px 35px 17px 35px 17px 35px 17px 35px 17px 35px 17px 35px 35px;
+}
+
+.register-graphic{
+    grid-column-start: 4;
+    grid-column-end: 5;
+    align-self: center;
+    justify-self: center;
+}
+.register-graphic>img{
+    max-width: 100%;
 }
 
 .register-form>h1{
-    grid-column-start: 2;
-    grid-column-end: 5;
     grid-row-start: 1;
     grid-row-end: 2;
     font-size: 48px;
@@ -37,8 +31,6 @@
 }
 
 .register-form>#err{
-    grid-column-start: 2;
-    grid-column-end: 4;
     grid-row-start: 2;
     grid-row-end: 3;
     display: grid;
@@ -55,57 +47,47 @@
 }
 
 .register-form>select{
-    grid-column-start: 2;
-    grid-column-end: 4;
     grid-row-start: 3;
     grid-row-end: 4;
 }
 
 .register-form>input[id = fname]{
-    grid-column-start: 2;
-    grid-column-end: 4;
     grid-row-start: 5;
     grid-row-end: 6;
 }
 
 .register-form>input[id = lname]{
-    grid-column-start: 2;
-    grid-column-end: 4;
     grid-row-start: 7;
     grid-row-end: 8;
 }
 
 .register-form>input[id = email]{
-    grid-column-start: 2;
-    grid-column-end: 4;
     grid-row-start: 9;
     grid-row-end: 10;
 }
 
 .register-form>input[id = pass]{
-    grid-column-start: 2;
-    grid-column-end: 4;
     grid-row-start:11;
     grid-row-end: 12;
 }
 
 .register-form>input[id = cpass]{
-    grid-column-start: 2;
-    grid-column-end: 4;
     grid-row-start: 13;
     grid-row-end: 14;
 }
 
 .register-form>input[type = submit]{
-    grid-column-start: 2;
-    grid-column-end: 4;
     grid-row-start: 15;
     grid-row-end: 16;
 }
 
 .register-form>p{
-    grid-column-start: 2;
-    grid-column-end: 5;
     grid-row-start: 17;
     grid-row-end: 18;
+}
+
+.register-form>p>#login{
+    color: #012180;
+    font-weight: 500;
+    text-decoration: underline;
 }

@@ -9,13 +9,13 @@ export default class extends AbstractView{
         $('.userType').change(function() {
             switch($('.userType').val()){
                 case 'shipper':
-                    $('.graphic').html('<img src="/static/assets/landing-page/warehouse.svg" alt="warehouse svg">')
+                    $('.register-graphic').html('<img src="/static/assets/landing-page/warehouse.svg" alt="warehouse svg">')
                     break
                 case 'carrier':
-                    $('.graphic').html('<img src="/static/assets/landing-page/truck.svg" alt="struck svg">')
+                    $('.register-graphic').html('<img src="/static/assets/landing-page/truck.svg" alt="struck svg">')
                     break
                 case 'partner':
-                    $('.graphic').html('<img src="/static/assets/landing-page/fleet.svg" alt="fleet svg">')
+                    $('.register-graphic').html('<img src="/static/assets/landing-page/fleet.svg" alt="fleet svg">')
                     break
             }
         });
@@ -190,11 +190,11 @@ export default class extends AbstractView{
                     <input type="password" id="cpass" name="cpass" placeholder="Confirm Password.." required>
                     <input type="submit" value="Sign Up">
                     <p>
-                        Already have an Account?  
+                        Already have an Account?\n  
                         <a href="/login" class="nav__link" data-link id = "login">Login Here</a>
                     </p>
                 </form>
-                <div class="graphic">
+                <div class="register-graphic">
                 </div>
             </div>
         `;
